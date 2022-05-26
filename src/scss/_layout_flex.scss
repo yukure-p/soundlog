@@ -1,0 +1,278 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+	汎用レイアウト（レイアウトセット参照）
+		ここではレイアウトに関わるスタイルのみ記載し、
+		背景色や背景画像、ボーダー、シャドウなどのデザインバリエーションは、
+		_pattern.scss内に継承クラスで指定すること
+		（例：.wrapper01.style01）
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	.boxFlexContentシリーズここから
+------------------------------------------------ */
+
+.box-flex-content {
+	@include flexbox;
+	@include flex-direction;
+	@include flex-align;
+	&.reverse {
+		@include flex-direction(row-reverse);
+	}
+	// @include media(sp){
+	// 	display: block;
+	// }
+	/*IE9以下*/
+	&.type01 {
+		@include flex-align($align: start);
+		&>.box-img{
+			width:34.8%;
+			@include media(sp){
+				width: 100%;
+			}
+		}
+		&>.box-content{
+			width:65.2%;
+			@include media(sp){
+				width: 100%;
+			}
+		}
+	}
+	&.type02{
+		// @include flex-align($align: start);
+		&>.box-img{
+			width:34.8%;
+			@include media(sp){
+				width: 100%;
+			}
+		}
+		&>.box-content{
+			width:65.2%;
+			@include media(sp){
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+
+/* ------------------------------------------------
+	.box-flexListシリーズここから
+------------------------------------------------ */
+
+.box-flexList01 {
+	@include flexbox;
+	@include flex-direction;
+	@include flex-wrap;
+	@include flex-justify-content;
+	&>.box-content {
+		@include box-sizing;
+		width: 25%;
+		&>.box-txt {
+			padding: $spaceR;
+		}
+	}
+	@include media(sp){
+		.box-content, &.row4>.box-content {width: 100%;}
+		&.type01>.box-content,
+		&.row4.type01>.box-content {
+			width: 50%;
+			float: left;
+		}
+		&.type02>.box-content,
+		&.row4.type02>.box-content {
+			width: 100%;
+			display: table;
+			&>.boxInner {
+				display: table-row;
+			}
+			&>.box-img
+			&>.box-txt {
+				display: table-cell;
+				width: 50%;
+				vertical-align: middle;
+			}
+		}
+	}
+	&.type01{
+		&>.box-content {
+			@include box-sizing;
+			width:13%;
+			height:auto;
+		}
+	}
+}
+
+
+.box-flexList02 {
+	width:100%;
+	// @extend %clearfix;
+	@include flexbox;
+	@include flex-direction;
+	@include flex-wrap;
+	-webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+	@include media(sp){
+		// display: block;
+		width:100%;
+	}
+	&>.box-content {
+		@include box-sizing;
+		&>.type01{
+			width:338px;
+			@include media(sp){
+				width:100%;
+			}
+		}
+		&>.box-txt {
+			padding: $spaceR;
+		}
+	}
+	&.row4 {
+		&>.box-content {width: 25%;}
+	}
+	@include media(sp){
+		.box-content, &.row4>.box-content {width: 100%;}
+		&.type01>.box-content,
+		&.row4.type01>.box-content {
+			width: 50%;
+			float: left;
+		}
+		&.type02>.box-content,
+		&.row4.type02>.box-content {
+			width: 100%;
+			display: table;
+		}
+	}
+	&.row2-type01 {
+		margin-bottom:40px;
+		&:last-child{
+			margin-bottom:25px;
+		}
+		&>.box-content {
+			width: 47%;
+			margin-bottom:30px;
+			@include media(sp){
+				width:100%;
+				margin-bottom:30px;
+			}
+		}
+		@include media(sp){
+			width:100%;
+			margin-bottom:20px;
+		}
+	}
+}
+
+
+
+.box-flexList03 {
+	@extend %clearfix;
+	@include flexbox;
+	@include flex-wrap;
+	@include media(sp){
+		// display: block;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+	}
+	&>.box-content {
+		@include box-sizing;
+		width: 33.33333%;
+		margin-bottom:60px;
+	// 	&:nth-child(4){
+	// 		margin-bottom:0;
+	// 		@include media(sp){
+	// 			margin-bottom:30px;
+	// 		}
+	// 	}
+	// 	&:nth-child(5){
+	// 		margin-bottom:0;
+	// 		@include media(sp){
+	// 			margin-bottom:30px;
+	// 		}
+	// 	}
+	// &:nth-child(6){
+	// 		margin-bottom:0;
+	// 		@include media(sp){
+	// 			margin-bottom:30px;
+	// 			float:right;
+	// 		}
+	// 	}
+		@include media(sp){
+			width: 46%;
+			margin-bottom:30px;
+		}
+		&>.box-txt {
+			padding: $spaceR;
+		}
+	}
+
+	&.type04{
+		@include media(sp){
+			display:inline;
+			display: flex;
+			justify-content: space-between;
+		}
+		&>.box-content {
+			@include media(sp){
+				width:46%;
+				display:inline-block;
+				margin-bottom:30px;
+			}
+		}
+	}
+	&.type05{
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		@include media(sp){
+			display:inline;
+			display: flex;
+
+		}
+		&>.box-content {
+			width:30%;
+			margin-bottom:80px;
+			justify-content: space-between;
+			&:last-child{
+				margin-bottom:0;
+			}
+			@include media(sp){
+				width:46%;
+				display:inline-block;
+				margin-bottom:30px;
+			}
+		}
+	}
+	&.type06{
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		@include media(sp){
+			display: block;
+		}
+		&>.box-content {
+		@include box-sizing;
+		width: 33.33333%;
+		margin-bottom:60px;
+			@include media(sp){
+				width:46%;
+				display:block;
+				margin-bottom:30px;
+			}
+			&:nth-child(even){
+				@include media(sp){
+					float:right;
+				}
+			}
+			&:nth-child(odd){
+				@include media(sp){
+					float:left;
+				}
+			}
+		}
+	}
+}
+
+

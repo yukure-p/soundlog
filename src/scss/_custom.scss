@@ -1,0 +1,296 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+	ページごとの個別スタイル
+	※サイト規模によってはさらにファイルを分けること
+
+////////////////////////////////////////////////////*/
+
+/* ------------------------------------------------
+	トップページここから
+------------------------------------------------ */
+.l-box{
+  opacity:0;
+  @include transition(all,.5s .0s, ease);
+}
+
+.contents-list{
+  width:auto;
+  height:auto;
+  img{
+    width:100%;
+    height:auto;
+  }
+  .date{
+    font-size:var(--fSizeXXS);
+    color:var(--font-color02);
+    margin-bottom:8px;
+  }
+  .list-title{
+    font-size:var(--fSizeSS);
+    margin-top:15px;
+    a{
+      display:inline-block;
+      color:var(--font-color01);
+    }
+  }
+  .box-img{
+    width:100%;
+  }
+}
+
+
+.mvtype{
+  font-size:var(--MVfont);
+  font-weight:bold;
+  &:after{
+    content:'|';
+    position:relative;
+    left:10px;
+    font-weight:normal;
+    @include animation(mvtype .8s ease 0s infinite normal);
+    @include keyframes(mvtype){
+      0% {
+        opacity: 0;
+      }
+      50%{
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+  @include media(sp){
+    font-size:clamp(26px, 1vw, 30px);
+  }
+}
+
+.mvimg{
+  // position: relative;
+  // z-index: -1;
+  // top: 36px;
+  @include media(sp){
+    img{
+      margin:0 auto;
+      width:80%;
+      height:100%;
+    }
+  }
+}
+
+
+/* ------------------------------------------------
+  使い回しアイテム
+------------------------------------------------ */
+
+.category-tag{
+  margin-top:12px;
+  line-height: 1;
+  .detail-aside & {
+    margin-top:0px;
+    padding:8px 0 8px 0;
+  }
+  li{
+    font-size:var(--fSizeXS);
+    margin-right:5px;
+    display:inline-block;
+    margin-bottom:10px;
+    a{
+      color:var(--font-color01);
+    }
+    &:after{
+      content:'/';
+      display:inline-block;
+      margin-left:5px;
+      color:var(--font-color02);
+      font-size:var(--fSizeXXS);
+    }
+    &:last-child{
+      margin-right:0;
+      &:after{
+        display:none;
+      }
+    }
+  }
+}
+.type-tag{
+  line-height: 1;
+  margin-top:5px;
+  li{
+    font-size:var(--fSizeXS);
+    margin-right:10px;
+    display:inline-block;
+    margin-bottom:15px;
+    a{
+      color:var(--font-color01);
+    }    
+    &:last-child{
+      margin-right:0;
+    }
+  }
+  .detail-aside & {
+    padding:0px 0 16px 0;
+    margin-top:0px;
+  }
+}
+
+
+/* ------------------------------------------------
+  一覧ページここから
+------------------------------------------------ */
+
+.entry-box{
+  margin: 60px 0 80px 0;
+  @include media(sp){
+    margin: 40px 0 40px 0;
+  }
+}
+
+.inner-entry-box{
+  width:70%;
+  margin:0 auto;
+  font-size:var(--Enfont);
+  @include media(tablet){
+    width:90%;
+  }
+  @include media(sp){
+    width:100%;
+  }
+  .date{
+    font-size:var(--fSizeXXS);
+    color:var(--font-color02);
+    margin-bottom:30px;
+    @include media(sp){
+      margin-bottom:10px;
+    }
+  }
+}
+
+
+
+/* ------------------------------------------------
+  記事ページここから
+------------------------------------------------ */
+
+.detail-aside{
+  .detail-box-inner{
+    @include sticky;
+    top:75px;
+  }
+  .detail-img{
+    img{
+      width:100%;
+      height:auto;
+    }
+  }
+  .detail-info{
+    margin-top:20px;
+    margin-bottom:10px;
+    border-bottom:1px solid var(--border-color01);
+    li{
+      // margin-bottom:8px;
+      font-size:var(--fSizeSS);
+      padding:7px 0 ;
+      display:table;
+      width:100%;
+      &:nth-child(odd){
+        background:var(--bg-color01);
+      }
+    }
+    .agenda{
+      font-size:var(--fSizeSS);
+      font-weight:bold;
+      display:inline-block;
+      width:110px;
+      position:relative;
+      display:table-cell;
+      vertical-align: middle;
+      padding-left:12px;
+      &:after{
+        content:'-';
+        display:inline-block;
+        position:absolute;
+        left:70px;
+        top:50%;
+        @include translate ($x:0, $y:-54%);
+        font-size:var(--fSizeS);
+        font-weight:bold;
+        color:var(--font-color02);
+        margin:0 10px;
+      }
+    }
+  }
+  .detail-link{
+    font-size:var(--fSizeSS);
+    margin:30px auto 0 auto;
+    width:60%;
+  }
+  .detail-tag{
+    padding-left:12px;
+  }
+}
+
+.content-movie {
+  margin:30px 0 30px 0;
+  .movie{
+    position: relative;
+    padding-bottom: 56.25%; /* アスペクト比16:9の場合 */
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    // margin-bottom: 2rem; /* YouTubeの下に余白をつける */
+    border:1px solid var(--font-color01);
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding:10px;
+      @include box-sizing;
+    }
+  }
+}
+
+.detain-innerbox{
+  margin-bottom:40px;
+  &:last-child{
+    margin-bottom:0;
+  }
+}
+
+
+.similar-box{
+  background:var(--bg-color01);
+  padding:3rem;
+  @include media(sp){
+    margin:40px 0 60px 0;
+  }
+  .similar-box-inner{
+    @include flexbox;
+    @include flex-wrap($wrap:wrap);
+    column-gap:20px;
+    .l-box{
+      width:25%;
+    }
+    @include media(sp){
+      @include flex-justify-content($justify:space-between);
+      column-gap:2%;
+      .l-box{
+        width:48%;
+        margin-bottom:40px;
+      }
+    }
+  }
+}
+
+
+/* ------------------------------------------------
+  検索件数
+------------------------------------------------ */
+.number{
+  display:none;
+}
+
+

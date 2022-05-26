@@ -1,0 +1,83 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+		body,html
+		header
+		main
+		footer
+
+		htmlタグに対しての設定のみ記述すること
+
+////////////////////////////////////////////////////*/
+//ipad対策 (2デバイス対応の場合　マルチデバイスの場合は不要)
+//body,html {
+//	@include media(tab-pc){
+//		min-width: $cnW;
+//	}
+//	@media print{
+//		min-width: $cnW;
+//	}
+//}
+html {
+	@include media(sp){
+		// height: 100%;
+	}
+}
+
+body {
+	background-color: var(--bg-color);
+	@include media(sp){
+		min-width: 320px;
+		margin:0;
+	}
+}
+
+
+header {
+	height: var(--header-height);
+	width: 100%;
+	z-index: 999;
+	@include sticky;
+	left: 0;
+	top: 0;
+	/*background-color:var(--bg-color02);*/
+	@include transition($property: all, $time: 0.6s, $timing: cubic-bezier(1, 0, 0.29, 1));
+	@include media(sp){
+		display:block;
+		height: 50px;
+	}
+}
+
+main{
+	width: 100%;
+}
+
+
+aside{
+	@include box-sizing;
+	background-color: var(--bg-color03);
+	height:100vh;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:999;
+	@include media(sp){
+		display:none;
+	}
+}
+
+footer {
+	width: 100%;
+	position:relative;
+	// background-color:var(--bg-color02);
+	// color:$baseColor01;
+	border-top:1px solid var(--border-color01);
+	@include media(sp){
+	width:calc(100%);
+	left:inherit;
+	}
+}
+
+
+
+

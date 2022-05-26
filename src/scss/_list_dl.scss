@@ -1,0 +1,83 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+	汎用リスト
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	記述リスト dl dt dd
+------------------------------------------------ */
+.dlBasic01 {
+	@extend %clearfix;
+	dt,dd {
+		padding: $spaceS 0;
+		&:first-child,
+		&:nth-child(2) {
+			padding-top: 0;
+		}
+		&:last-child,
+		&:nth-last-child(2){
+			padding-bottom: 0;
+		}
+	}
+	dt {
+		clear: both;
+		float: left;
+		width: 140px;
+		line-height: 1.4;
+		@include fz($fSizeM);
+		color: $baseColor06;
+		@include media(spS){
+			float: none;
+			width: auto;
+		}
+	}
+	dd {
+		margin-left: 140px;
+		padding-left: $spaceS;
+		position: relative;
+		@include media(spS){
+			margin-left: 0;
+			padding-left: 2rem;
+		}
+		&:before {
+			@include arrow($baseColor07, right, 6px, 4px, block);
+			position: absolute;
+			top: $spaceS + 8px;
+			left: 0;
+			@include media(spS){
+				left: $spaceS;
+			}
+		}
+		&:nth-child(2):before {
+			top: 8px;
+		}
+	}
+}
+.dlInquiry01 {
+	display: table;
+	width: 100%;
+	border: 1px solid $baseColor03;
+	background-color: $baseColor02;
+	@include media(sp){
+		display: block;
+	}
+	&>dt,
+	&>dd {
+		display: table-cell;
+		vertical-align: middle;
+		padding: $spaceS;
+		text-align: center;
+		@include media(sp){
+			display: block;
+		}
+	}
+	&>dd {
+		border-left: 1px solid $baseColor03;
+		@include media(sp){
+			border-left: none;
+		}
+	}
+	.tit {
+	}
+}

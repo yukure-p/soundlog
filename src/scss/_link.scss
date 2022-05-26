@@ -1,0 +1,390 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+	汎用リンク
+
+////////////////////////////////////////////////////*/
+
+/* ------------------------------------------------
+	gnav
+------------------------------------------------ */
+@include media(pc){
+	.link-gnav{
+		position:relative;
+		&:after{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			content: '';
+			width: 22px;
+			height: 22px;
+			margin: -12px 0 0 -12px;
+			border-radius: 50%;
+			border: 1px solid #cfcfcf;
+			transition: all .1s;
+			opacity: 0;
+		}
+		&:hover {
+			cursor: pointer;
+			&:after{
+				@include animation(circle .5s);
+				@include keyframes(circle){
+					0% {
+						transform: scale(.1);
+						opacity: 0;
+					}
+					50% {
+						opacity: 1;
+					}
+					100% {
+						transform: scale(2.0);
+						opacity: 0;
+						display:none;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ------------------------------------------------
+	ベース設定
+------------------------------------------------ */
+a {
+	text-decoration: none;
+	//マウスオーバーの設定
+	&.img-eff{
+
+		&:hover {
+		}
+	}
+	@include media(pc){
+		&:before{
+
+		}
+		&:hover {
+			cursor:pointer;
+			// color:$fontColor01;
+		}
+	}
+	&:link {
+		// color:$fontColor01;
+	}
+	&:visited {
+		color:$fontColor01;
+	}
+}
+
+/* ------------------------------------------------
+	テキストリンク
+------------------------------------------------ */
+/* インラインリンク */
+a.link01 {
+	position:relative;
+	
+	@include media(pc){
+		@include transition($property: all, $time: 0.4s, $timing: cubic-bezier(0, 0.01, 0, 1.02));
+		&:hover {
+			cursor:pointer;
+			@include opacity(0.6);
+			// &:after{
+			// 	width:100%;
+			// }
+		}
+	}
+}
+
+a.link02 {
+	@include transition($property: all, $time: 0.4s, $timing: cubic-bezier(0, 0.01, 0, 1.02));
+	background:var(--link-color02);
+	padding:4px 8px;
+	height:10px;
+	@include media(pc){
+		&:hover {
+			@include opacity(0.6);
+			cursor:pointer;
+		}
+	}
+}
+
+// 未使用
+// a.link03 {
+// 	position:relative;
+//     background:var(--link-color02);
+//     padding:4px 8px;
+//     height:10px;
+//     @include transition($property: all, $time: 0.4s, $timing: cubic-bezier(0, 0.01, 0, 1.02));
+// 	@include media(pc){
+// 		&:before{
+// 			z-index:-1;
+// 			content:'';
+// 			display:inline-block;
+// 			position:absolute;
+// 			background:var(--link-color01);
+// 			height:100%;
+// 			width:0;
+// 			left:0;
+// 			bottom:0;
+// 			@include transition($property: all, $time: 0.4s, $timing: cubic-bezier(0, 0.01, 0, 1.02));
+// 		}
+// 		&:hover {
+// 			cursor:pointer;
+// 			background:none;
+// 			color:var(--font-color03);
+// 			width:0;
+// 			&:before{
+// 				width:100%;
+// 			}
+// 		}
+// 	}
+// }
+
+
+
+/*　ブロックリンク　*/
+@include media(pc){
+.linkBl01 {
+	overflow:hidden;
+	display:block;
+	// @include transition($property: all, $time: 0.8s, $timing: cubic-bezier(0, 0.58, 0.67, 1.02));
+		img{
+			@include transition($property: all, $time: 0.8s, $timing: cubic-bezier(0, 0.58, 0.67, 1.02));
+		}
+		&:hover {
+			cursor:pointer;
+			img{
+				@include scale($property: 1.1);
+			}
+		}
+	}
+}
+.linkBlock02 {
+	//マウスオーバーの設定
+	.PC & {
+		&:hover {
+
+		}
+	}
+}
+
+/* ------------------------------------------------
+	ボタン
+------------------------------------------------ */
+.btn01 {
+
+	color:var(--font-color03);
+	text-align: center;
+	&>a,
+	{
+		@include transition;
+		color:var(--font-color03);
+		display:inline-block;
+		text-align: center;
+		width:100%;
+		padding:10px;
+		background-color:var(--bg-color02);
+		&:hover {
+			cursor:pointer;
+			@include opacity(0.6);
+		}
+	}
+}
+
+
+
+/* ------------------------------------------------
+	CheckBox
+------------------------------------------------ */
+.nav-inputbox{
+	.check-box{
+	  // display:inline-flex;
+	  position: relative;
+	}
+	.check-input{
+	  opacity: 0;
+	}
+
+	.check-input:not(:disabled) ~ .check-label{
+	  cursor: pointer;
+	}
+	.check-text{
+		position:absolute;
+		left:0;
+	}
+	.check-label::after{
+	  content: "";
+	  box-sizing: border-box;  
+	  width: 1em;
+	  height: 1em;
+	  font-size: 1.25rem; /* 1 */
+	  background-color: transparent;
+	  border: 1px solid #222;
+	  position: absolute;
+	  right: 0;
+	  top: 2px;
+	  z-index: 2;
+	}
+
+	.check-input:checked ~ .check-label::after{
+	  background-color: #222;
+	}
+
+	.check-label::before{
+	  content: "";
+	  width: 0;
+	  height: 0;
+	  font-size: 1.25rem; /* 1 */
+	  border-left-width: 0;
+	  border-bottom-width: 0;
+	  border-left-style: solid;
+	  border-bottom-style: solid;
+	  border-color: #fff;
+	  position: absolute;
+	  top: .6428em;
+	  right: .28em;
+	  z-index: 3;
+	  transform-origin: left top;
+	  transform: rotate(-40deg) skew(10deg);
+	}
+
+	.check-input:checked ~ .check-label::before{
+	  width: 6px;
+	  height: 4px;
+	  border-left-width: var(--uiToggleArrowWidth);
+	  border-bottom-width: 2px;
+	}
+
+
+	/* disabled state */
+
+	.check-input:disabled ~ .check-label{
+	  opacity: var(--toggleOpacityDisabled, .24);
+	  cursor: var(--toggleCursorDisabled, not-allowed);
+	  user-select: none;
+	}
+
+
+
+	/* 
+	The animation of switching states
+	*/
+
+	.check-input:not(:disabled) ~ .check-label::before{
+	  will-change: width, height;
+	  opacity: 0;
+	}
+
+	.check-input:not(:disabled):checked ~ .check-label::before{
+	  opacity: 1;
+	  transition: opacity .1s ease-out .25s;
+	}
+
+	.check-input:not(:disabled) ~ .check-label::after{
+	  will-change: background-color;
+	  transition: background-color .2s ease-out;
+	}
+
+}
+
+
+.gnav-inputbox{
+	.check-box{
+	  position: relative;
+	  width:100%;
+	  display: inline-block;
+	  cursor: pointer;
+	}
+	.check-input{
+	  opacity: 0;
+	  display:none;
+	}
+
+	.check-input:not(:disabled) ~ .check-label{
+		// margin-left: 15px;
+
+	}
+	.check-text{
+		// position:absolute;
+		// right:0;
+	}
+	.check-label::after{
+		content: "";
+		box-sizing: border-box;  
+		width: 1em;
+		height: 1em;
+		font-size: 1.25rem; /* 1 */
+		background-color: transparent;
+		border: 1px solid #222;
+		position: absolute;
+		right: 0;
+		top: 2px;
+		z-index: 2;
+		margin-left: 5px;
+		display: inline-block;
+		// position:absolute;
+		// top: 1px;
+		// right:0;
+	}
+
+	.check-input:checked ~ .check-label::after{
+	  background-color: #222;
+	}
+
+	.check-label::before{
+	  content: "";
+	  width: 0;
+	  height: 0;
+	  font-size: 1.25rem; /* 1 */
+	  border-left-width: 0;
+	  border-bottom-width: 0;
+	  border-left-style: solid;
+	  border-bottom-style: solid;
+	  border-color: #fff;
+	  position: absolute;
+	  top: .6em;
+	  right: .28em;
+	  z-index: 3;
+	  transform-origin: left top;
+	  transform: rotate(-40deg) skew(10deg);
+	}
+
+	.check-input:checked ~ .check-label::before{
+	  width: 6px;
+	  height: 4px;
+	  border-left-width: var(--uiToggleArrowWidth);
+	  border-bottom-width: 2px;
+	}
+
+
+	/* disabled state */
+
+	.check-input:disabled ~ .check-label{
+	  opacity: var(--toggleOpacityDisabled, .24);
+	  cursor: var(--toggleCursorDisabled, not-allowed);
+	  user-select: none;
+	}
+
+
+
+	/* 
+	The animation of switching states
+	*/
+
+	.check-input:not(:disabled) ~ .check-label::before{
+	  will-change: width, height;
+	  opacity: 0;
+	}
+
+	.check-input:not(:disabled):checked ~ .check-label::before{
+	  opacity: 1;
+	  transition: opacity .1s ease-out .25s;
+	}
+
+	.check-input:not(:disabled) ~ .check-label::after{
+	  will-change: background-color;
+	  transition: background-color .2s ease-out;
+	}
+
+}
+

@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+//　----------------------------------------------------------
+//　scssファイルを統合
+//　----------------------------------------------------------
+@import "common","reset","font","link","base","layout","layout_list","layout_flex","pattern","txt","list","list_ol","list_dl","table","module","custom","state";
+

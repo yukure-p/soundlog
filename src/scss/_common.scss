@@ -1,0 +1,403 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+  変数、mixin、プレースホルダー 定義　適宜変更・追加すること
+
+////////////////////////////////////////////////////*/
+//　==================================================
+//　画像
+//　==================================================
+$icoGnav:'/common/img/sprite_gNav01.png';
+$icoSprite01:'/common/img/sprite_ico01.png';
+:root {
+  // フォントカラー
+  --font-color01: #333333;//
+  --font-color02: #808080;//
+  --font-color03: #fff;//
+  --font-color04: #bfbfbf;//
+  --font-color05:#656565;//list-tit a のカラー
+
+  // 背景カラー
+  --bg-color:#F8F8F8;//背景
+  --bg-color01: #f7f7f7;//
+  --bg-color02: #333333;//
+  --bg-color03: #fff;//
+  --bg-color04: #e7e7e7;//
+  --bg-color05: #F5F5F5;
+
+  // ベースカラー
+  --base-color01: #fff;
+  --base-color02: #333333;
+
+  // ボーダーカラー
+  --border-color01: #eaeaea;//サイドバーのライン
+  --border-color02: #333333;//サイドメニューBTN
+  --border-color03: #d8d8d8;//タイトル下のライン　フッターのライン
+  --border-color04: #fff;//スマホメニュー検索結果 メニューライン
+
+  // テーマカラー
+  --thema-color01: #333333;
+
+  // ポイントカラー
+  --point-color01: #333333;
+
+  // リンクカラー
+  --link-color01: #808080;//リンクライン
+  --link-color02: #f3f3f3;//リンク背景
+
+  // フォントサイズ
+  --fSizeXXXS: calc((8* 0.1) * 1rem);//
+  --fSizeXXS: calc((10* 0.1) * 1rem);//
+  --fSizeXS: calc((11* 0.1) * 1rem);
+  --fSizeSS: calc((12* 0.1) * 1rem);//
+  --fSizeS: calc((14* 0.1) * 1rem);
+  --fSize: calc((16* 0.1) * 1rem);//
+  --fSizeR: calc((18* 0.1) * 1rem);
+  --fSizeM: calc((20* 0.1) * 1rem);
+  --fSizeL: calc((22* 0.1) * 1rem);
+  --fSizeLL: calc((24* 0.1) * 1rem);
+  --fSizeXL: calc((26* 0.1) * 1rem);
+  --Enfont: calc((30* 0.1) * 1rem);//
+  --EnfontS: calc((32* 0.1) * 1rem);
+  --EnfontR: calc((34* 0.1) * 1rem);
+  --EnfontL: calc((36* 0.1) * 1rem);
+  --EnfontXL: calc((38* 0.1) * 1rem);
+  --MVfont: calc((60* 0.1) * 1rem);
+
+
+  // コンテンツ幅
+  --cn-max-width: 1440px;
+  --cniW: 975px;
+  --cn-width:calc(1340 / 1440 * 100%);
+  --cn-sp-width:90%;
+  // ヘッダー
+  --header-height:70px;
+
+  //サイド
+  --asW: 425px;
+  //スペース
+  --spaceS: 10px;
+  --spaceR: 20px;
+  --spaceM: 30px;
+  --spaceL: 40px;
+  --spaceLL: 50px;
+  --spaceXL: 60px;//
+  --spaceContent: 120px;//
+  --spaceContentSP: 40px;//
+  --nav-lang-width:78px; //
+  --nav-gnav-width:78px; //
+  --nav-width:30px; //
+  --logo-width:140px;//
+}
+
+
+
+//　==================================================
+//　フォント
+//　==================================================
+
+// フォントサイズのバリエーション
+$fSizeXXXXS: 10;
+$fSizeXXXS: 11;
+$fSizeXXS: 12;
+$fSizeXS: 13;
+$fSizeSS:14;
+$fSizeS:15;
+$fSize:16;
+$fSizeR:17;
+$fSizeM:18;
+$fSizeL:19;
+$fSizeLL:20;
+$fSizeXL:21;
+$EnfSizeR:20;
+$EnfSizeM:22;
+$EnfSizeL:25;
+$EnfSizeLl:30;
+$EnfSizeLL:35;
+$EnfSizeLLL:40;
+
+// 英語フォントのバリエーション
+@mixin english($weight: 700){
+  font-family:'Raleway';
+  font-weight: $weight;
+}
+
+// フォントサイズのミックスイン指定
+@mixin fz($size){
+  font-size: $size + px;
+  font-size: ($size * 0.1) * 1rem;
+}
+
+//　==================================================
+//　色
+//　==================================================
+// ベースカラー
+$baseColor01: #fff;
+$baseColor02: #333333;
+$baseColor03: #454545; //ボタンボーダー
+$baseColor04: #626262; //タグカラー　タイトル左
+$baseColor05: #cfcfcf; //タイトル右
+$baseColor06: #dbdbdb;//区切り線
+$baseColor07: #565656;//区切り線メニュー
+$baseColor08: #f7f7f7;//背景ありのテキスト
+$baseColor09: #292a2a;
+$baseColor10: #f6f6f6;
+
+// テーマカラー
+$themaColor01: #FFF159;
+$themaColor02: #FFE400; //サイドメニュー
+
+// ポイントカラー
+$pointColor01: #ff0000; //Ftimeロゴカラー
+$pointColor02: #7e9bb0; //暗い水色　イベントタグ　
+$pointColor03: #cda779; //暗い黄色　キャンペーンタグ
+$pointColor04: #e4b71b; //暗い黄色02
+$pointColor05: #425563; //暗い紺
+$pointColor06: #00bd8c; //グリーン
+
+$fontColor01: #333333;//通常フォント
+$fontColor02: #6b6b6b;//タグ　日付等
+
+
+
+//　==================================================
+//　幅
+//　==================================================
+// コンテンツ幅
+$cnW: 1440px;
+// コンテンツ幅2
+$cniW: 975px;
+// サイド幅
+$asW: 975px;
+// スペース
+$spaceS: 10px;
+$spaceR: 20px;
+$spaceM: 30px;
+$spaceL: 60px;
+$spaceLL: 120px;
+
+//　==================================================
+//　メディアクエリ設定
+//　==================================================
+@mixin media($point){
+  @if $point == spS{
+    @media only screen and (max-width:320px){
+      @content;
+    }
+  }@if $point == spMS{
+    @media only screen and (max-width:360px){
+      @content;
+    }
+  }@else if $point == sp{
+    @media only screen and (max-width:767px){
+      @content;
+    }
+  }@else if $point == tablet{
+    @media only screen and (min-width: 768px) and (max-width:1024px){
+      @content;
+    }
+  }@else if $point == pc{
+    @media only screen and (min-width:1025px){
+      @content;
+    }
+  }@else if $point == pcL{
+    @media only screen and (min-width:1540px){
+      @content;
+    }
+  }@else if $point == print{
+    @media print{
+      @content;
+    }
+  }
+
+}
+
+// PC：設定なし（実質1025px以上）
+// タブレット：1024px [max-width : 1024px]
+// スマートフォン：599px [max-width : 599px]
+
+//　==================================================
+//　プレースホルダー
+//　==================================================
+
+//clearfix
+%clearfix {
+  *zoom: 1;
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+
+//　==================================================
+//　汎用mixin
+//　==================================================
+
+// opacity 例：@include opacity(0.8);
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
+// box-shadow（ボックスシャドウ）
+@mixin box-shadow($property: 0px 3px 10px 0px rgba($baseColor02,.2)){
+  box-shadow: $property;
+}
+
+//　box-sizing
+@mixin box-sizing($property: border-box){
+  box-sizing: $property;
+}
+
+//　scale(スケール)
+@mixin scale($property: 1.1){
+  -webkit-transform: scale($property,$property);
+  -moz-transform: scale($property,$property);
+  -ms-transform: scale($property,$property);
+  -o-transform: scale($property,$property);
+  transform: scale($property,$property);
+}
+
+// bgSize(背景画像のサイズ)
+@mixin bgSize($property: auto) {
+  -webkit-background-size: $property;
+  -moz-background-size: $property;
+  -o-background-size: $property;
+  background-size: $property;
+}
+
+// vertical-align（天地の中央に配置）
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// gradient（グラデーション） 例：@include gradient($property, vertical);
+@mixin gradient($property, $orientation){
+  @if $orientation == vertical{
+  // vertical
+    background: linear-gradient(to bottom, $property);
+  }@else if $orientation == horizontal{
+  // horizontal
+    background: linear-gradient(to right, $property);
+  }
+  @else{
+  // radial
+    background: radial-gradient(ellipse at center, $property);
+  }
+}
+
+// arrow やじるしのスタイル 例：@include arrow($baseColor01, right, 6px, 5px, inline-block); デフォルトでは右向きやじるし
+@mixin arrow($color: $pointColor01, $type: right, $base: 9px, $height: 6px, $display: block){
+  @if $type == right{
+    border-width: $base* 0.5 0 $base* 0.5 $height;
+    border-color: transparent transparent transparent $color;
+  }@else if $type == left{
+    border-width: $base* 0.5 $height $base* 0.5 0;
+    border-color: transparent $color transparent transparent ;
+  }@else if $type == top {
+    border-width: 0 $base* 0.5 $height;
+    border-color: transparent transparent $color;
+  }@else {
+    border-width: $height $base* 0.5 0;
+    border-color: $color transparent transparent;
+  }
+  display: $display;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+// transition（CSSアニメーション）
+@mixin transition($property: all, $time: 0.7s, $timing: ease) {
+  transition: $property $time $timing;
+}
+
+// rotate 回転スタイル
+@mixin rotate($origin: left center, $property: 6deg) {
+  -webkit-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  transform-origin: $origin;
+  -webkit-transform: rotate($property);
+  -ms-transform: rotate($property);
+  transform: rotate($property);
+}
+
+// translateX,Y 移動スタイル
+@mixin translate ($x:0, $y:0) {
+  -webkit-transform: translateX($x);
+  -moz-transform: translateX($x);
+  transform: translateX($x);
+  -webkit-transform: translateY($y);
+  -moz-transform: translateY($y);
+  transform: translateY($y);
+}
+
+// flexbox（フレックスボックス）
+@mixin flexbox{
+  display:-webkit-box; // old
+  display:-webkit-flex; // new
+  display:flex; // new
+}
+
+// flex-order（表示の順番）
+@mixin flex-order($order:3){
+  -webkit-box-ordinal-group: $order; // old
+  -webkit-order: $order; // new
+  order: $order; // new
+}
+
+// flex-direction（表示の方向） $directionはcolumn、row、column-reverse、row-reverseから選択
+@mixin flex-direction($direction:row){
+  -webkit-flex-direction:$direction;
+  flex-direction:$direction;
+}
+
+// flex-align(子要素の配置) $alignはcenter,start,end,stretchから選択
+@mixin flex-align($align: center){
+  -webkit-align-items: $align;
+  align-items: $align;
+}
+
+// flex-self(子要素の配置) $alignはcenter,flex-start,flex-end,stretchから選択
+@mixin flex-self($align: center){
+  -webkit-align-self: $align;
+  align-self: $align;
+}
+
+
+
+// flex-wrap(折り返し設定) nowrap,wrap,wrap-reverse
+@mixin flex-wrap($wrap:wrap){
+  -webkit-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+// justify-content(横位置) center,space-between,space-around
+@mixin flex-justify-content($justify:space-between){
+  -webkit-justify-content: $justify;
+  justify-content: $justify;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+@mixin animation($property){
+  animation: $property;
+  animation-fill-mode: both;
+}
+
+
+// position sticky
+@mixin sticky{
+  position: -webkit-sticky;
+  position: sticky;
+}

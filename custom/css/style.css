@@ -1,0 +1,3267 @@
+@charset "UTF-8";
+/*////////////////////////////////////////////////////
+
+  変数、mixin、プレースホルダー 定義　適宜変更・追加すること
+
+////////////////////////////////////////////////////*/
+@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:Extra-Light);
+
+.dlBasic01, .box-flexList03, .boxTableList02, .boxTableList01, .boxList03, .boxList02, .boxList01, .section, .container-inner, .boxTxt {
+  *zoom: 1;
+}
+.dlBasic01:after, .box-flexList03:after, .boxTableList02:after, .boxTableList01:after, .boxList03:after, .boxList02:after, .boxList01:after, .section:after, .container-inner:after, .boxTxt:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*////////////////////////////////////////////////////
+
+    リセット
+
+////////////////////////////////////////////////////*/
+/**
+ * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
+ * Richard Clark (http://richclarkdesign.com)
+ * http://cssreset.com
+ */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: bottom;
+  background: transparent;
+}
+
+html, body {
+  width: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+img {
+  border: none;
+  vertical-align: top;
+  zoom: 1;
+}
+
+/*////////////////////////////////////////////////////
+
+	フォント・文字サイズ設定
+
+////////////////////////////////////////////////////*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /*font size自動調整をきる*/
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-family: "dnp-shuei-gothic-kin-std", sans-serif, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka;
+  font-size: 16px;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #333333;
+  letter-spacing: 0.1em;
+}
+
+.en {
+  font-family: "Raleway";
+}
+
+/*////////////////////////////////////////////////////
+
+	汎用リンク
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	gnav
+------------------------------------------------ */
+/* ------------------------------------------------
+	ベース設定
+------------------------------------------------ */
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: #333333;
+}
+
+/* ------------------------------------------------
+	テキストリンク
+------------------------------------------------ */
+/* インラインリンク */
+a.link01 {
+  position: relative;
+}
+
+a.link02 {
+  -webkit-transition: all 0.4s cubic-bezier(0, 0.01, 0, 1.02);
+  transition: all 0.4s cubic-bezier(0, 0.01, 0, 1.02);
+  background: #f3f3f3;
+  padding: 4px 8px;
+  height: 10px;
+}
+
+/*　ブロックリンク　*/
+/* ------------------------------------------------
+	ボタン
+------------------------------------------------ */
+.btn01 {
+  color: #fff;
+  text-align: center;
+}
+.btn01 > a {
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #333333;
+}
+.btn01 > a:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+
+/* ------------------------------------------------
+	CheckBox
+------------------------------------------------ */
+.nav-inputbox {
+  /* disabled state */
+  /* 
+  The animation of switching states
+  */
+}
+.nav-inputbox .check-box {
+  position: relative;
+}
+.nav-inputbox .check-input {
+  opacity: 0;
+}
+.nav-inputbox .check-input:not(:disabled) ~ .check-label {
+  cursor: pointer;
+}
+.nav-inputbox .check-text {
+  position: absolute;
+  left: 0;
+}
+.nav-inputbox .check-label::after {
+  content: "";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  font-size: 12.5px;
+  font-size: 1.25rem;
+  /* 1 */
+  background-color: transparent;
+  border: 1px solid #222;
+  position: absolute;
+  right: 0;
+  top: 2px;
+  z-index: 2;
+}
+.nav-inputbox .check-input:checked ~ .check-label::after {
+  background-color: #222;
+}
+.nav-inputbox .check-label::before {
+  content: "";
+  width: 0;
+  height: 0;
+  font-size: 12.5px;
+  font-size: 1.25rem;
+  /* 1 */
+  border-left-width: 0;
+  border-bottom-width: 0;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-color: #fff;
+  position: absolute;
+  top: 0.6428em;
+  right: 0.28em;
+  z-index: 3;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: rotate(-40deg) skew(10deg);
+          transform: rotate(-40deg) skew(10deg);
+}
+.nav-inputbox .check-input:checked ~ .check-label::before {
+  width: 6px;
+  height: 4px;
+  border-left-width: var(--uiToggleArrowWidth);
+  border-bottom-width: 2px;
+}
+.nav-inputbox .check-input:disabled ~ .check-label {
+  opacity: 0.24;
+  cursor: not-allowed;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.nav-inputbox .check-input:not(:disabled) ~ .check-label::before {
+  will-change: width, height;
+  opacity: 0;
+}
+.nav-inputbox .check-input:not(:disabled):checked ~ .check-label::before {
+  opacity: 1;
+  -webkit-transition: opacity 0.1s ease-out 0.25s;
+  transition: opacity 0.1s ease-out 0.25s;
+}
+.nav-inputbox .check-input:not(:disabled) ~ .check-label::after {
+  will-change: background-color;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+
+.gnav-inputbox {
+  /* disabled state */
+  /* 
+  The animation of switching states
+  */
+}
+.gnav-inputbox .check-box {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+}
+.gnav-inputbox .check-input {
+  opacity: 0;
+  display: none;
+}
+.gnav-inputbox .check-label::after {
+  content: "";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  font-size: 12.5px;
+  font-size: 1.25rem;
+  /* 1 */
+  background-color: transparent;
+  border: 1px solid #222;
+  position: absolute;
+  right: 0;
+  top: 2px;
+  z-index: 2;
+  margin-left: 5px;
+  display: inline-block;
+}
+.gnav-inputbox .check-input:checked ~ .check-label::after {
+  background-color: #222;
+}
+.gnav-inputbox .check-label::before {
+  content: "";
+  width: 0;
+  height: 0;
+  font-size: 12.5px;
+  font-size: 1.25rem;
+  /* 1 */
+  border-left-width: 0;
+  border-bottom-width: 0;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-color: #fff;
+  position: absolute;
+  top: 0.6em;
+  right: 0.28em;
+  z-index: 3;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: rotate(-40deg) skew(10deg);
+          transform: rotate(-40deg) skew(10deg);
+}
+.gnav-inputbox .check-input:checked ~ .check-label::before {
+  width: 6px;
+  height: 4px;
+  border-left-width: var(--uiToggleArrowWidth);
+  border-bottom-width: 2px;
+}
+.gnav-inputbox .check-input:disabled ~ .check-label {
+  opacity: 0.24;
+  cursor: not-allowed;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.gnav-inputbox .check-input:not(:disabled) ~ .check-label::before {
+  will-change: width, height;
+  opacity: 0;
+}
+.gnav-inputbox .check-input:not(:disabled):checked ~ .check-label::before {
+  opacity: 1;
+  -webkit-transition: opacity 0.1s ease-out 0.25s;
+  transition: opacity 0.1s ease-out 0.25s;
+}
+.gnav-inputbox .check-input:not(:disabled) ~ .check-label::after {
+  will-change: background-color;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+
+/*////////////////////////////////////////////////////
+
+		body,html
+		header
+		main
+		footer
+
+		htmlタグに対しての設定のみ記述すること
+
+////////////////////////////////////////////////////*/
+body {
+  background-color: #F8F8F8;
+}
+
+header {
+  height: 70px;
+  width: 100%;
+  z-index: 999;
+  position: sticky;
+  left: 0;
+  top: 0;
+  /*background-color:var(--bg-color02);*/
+  -webkit-transition: all 0.6s cubic-bezier(1, 0, 0.29, 1);
+  transition: all 0.6s cubic-bezier(1, 0, 0.29, 1);
+}
+
+main {
+  width: 100%;
+}
+
+aside {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+footer {
+  width: 100%;
+  position: relative;
+  border-top: 1px solid #eaeaea;
+}
+
+/*////////////////////////////////////////////////////
+
+	汎用レイアウト（レイアウトセット参照）
+		ここではレイアウトに関わるスタイルのみ記載し、
+		背景色や背景画像、ボーダー、シャドウなどのデザインバリエーションは、
+		_pattern.scss内に継承クラスで指定すること
+		（例：.wrapper01.style01）
+		l-header
+		l-header-inner 内側の枠
+		l-header-outer　外側の枠
+
+		l-frame > l-container > l-contents > l-box
+
+		l-frame コンテンツ部分の大枠　ページタイトルとコンテンツの区切り
+		l-container　コンテンツの内枠
+		l-contents　H1見出し区切り
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	Grid レイアウト
+	gridレイアウトに関わる記述のみ書くこと
+------------------------------------------------ */
+.l-grid {
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+}
+.l-grid header {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.l-grid header .l-header {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 78px 78px;
+}
+.l-grid main {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.l-grid main .l-frame {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+}
+.l-grid footer {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  background: #fff;
+}
+
+/* ------------------------------------------------
+	l-grid header
+------------------------------------------------ */
+.l-header {
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, .9);
+}
+
+.logo {
+  position: relative;
+  width: 140px;
+  --logo-width-harf:70px;
+  --logo-position:calc(var(--logo-width-harf) - 78px);
+  left: calc(50% - var(--logo-position));
+  top: 26px;
+}
+.logo img {
+  width: 100%;
+}
+
+.h-logo {
+  width: 100%;
+  fill: #fff;
+}
+
+.lang-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 9999;
+  border-left: 1px solid #F8F8F8;
+}
+.lang-btn .lang {
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.gnav-botton {
+  width: 100%;
+  height: 100%;
+  background: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gnav-botton-inner {
+  width: 30px;
+  height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.gnav-line {
+  width: 30px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.l-gnav {
+  position: fixed;
+  top: 0;
+  right: -360px;
+  width: 360px;
+  height: 100vh;
+  overflow-y: scroll;
+  visibility: hidden;
+  z-index: 999;
+  background: #fff;
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur in="SourceAlpha" stdDeviation="10" /><feOffset dx="11" dy="11" result="offsetblur" /><feFlood flood-color="rgba(0,0,0,0.6)" /><feComposite in2="offsetblur" operator="in" /><feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge></filter></svg>#filter');
+  -webkit-filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .6));
+          filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .6));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 0.8s cubic-bezier(0, 0.48, 0.12, 0.99);
+  transition: all 0.8s cubic-bezier(0, 0.48, 0.12, 0.99);
+}
+.l-gnav .close-btn {
+  width: 100px;
+  height: 50px;
+  color: #333333;
+  font-size: 11px;
+  font-size: 1.1rem;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  margin-top: 25px;
+}
+.l-gnav .close-btn:before, .l-gnav .close-btn:after {
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 1px;
+  background: #333333;
+}
+.l-gnav .close-btn:before {
+  -webkit-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.l-gnav .close-btn:after {
+  -webkit-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.l-gnav .gnav-menu {
+  width: 100%;
+  -webkit-transition: all 0.5s cubic-bezier(0.58, -0.01, 1, 0.11);
+  transition: all 0.5s cubic-bezier(0.58, -0.01, 1, 0.11);
+}
+.l-gnav .gnav-inner {
+  margin: 0 auto;
+  width: 100%;
+}
+.l-gnav .gnav-inner:first-child {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.l-gnav .gnav-inner:last-child {
+  margin-bottom: 40px;
+}
+.l-gnav .gnav-inner h1 {
+  font-size: 14px;
+  font-size: 1.4rem;
+  background: #F5F5F5;
+  font-weight: normal;
+  line-height: 2;
+  padding-left: 15%;
+}
+.l-gnav .gnav-inner:nth-of-type(1) {
+  margin-top: 60px;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+.l-gnav .gnav-inner:nth-of-type(2), .l-gnav .gnav-inner:nth-of-type(3), .l-gnav .gnav-inner:nth-of-type(4), .l-gnav .gnav-inner:nth-of-type(5), .l-gnav .gnav-inner:nth-of-type(6) {
+  margin-top: -10px;
+}
+.l-gnav .gnav-inner:nth-of-type(2) {
+  -webkit-transition: all 0.3s 0.1s ease;
+  transition: all 0.3s 0.1s ease;
+}
+.l-gnav .gnav-inner:nth-of-type(3) {
+  -webkit-transition: all 0.3s 0.2s ease;
+  transition: all 0.3s 0.2s ease;
+}
+.l-gnav .gnav-inner:nth-of-type(4) {
+  -webkit-transition: all 0.3s 0.3s ease;
+  transition: all 0.3s 0.3s ease;
+}
+.l-gnav .gnav-inner:nth-of-type(4) ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.l-gnav .gnav-inner ul {
+  margin: 25px 0 0px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+.l-gnav .gnav-inner ul li {
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-family: quicksand;
+  font-weight: lighter;
+  margin-bottom: 18px;
+  line-height: 1;
+  width: 70%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.l-gnav .gnav-inner ul li a {
+  display: inline-block;
+}
+.l-gnav .result-box {
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.l-gnav .result-box .result-inner {
+  width: 30%;
+  background: #F5F5F5;
+  margin-bottom: 30px;
+  height: 40px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.l-gnav .result-box .result-inner .result-tit {
+  width: 47%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.l-gnav .result-box .result-inner .result-num {
+  width: 53%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.l-gnav .result-box .result-inner .num {
+  font-size: 16px;
+  font-size: 1.6rem;
+  position: relative;
+  right: 8px;
+  top: -1px;
+  font-weight: bold;
+}
+.l-gnav .result-box .result-inner .spin-box {
+  position: relative;
+  top: -1px;
+  right: 13px;
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  background: rgba(51, 51, 51, .1);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(33%, rgba(51, 51, 51, .1)), to(#333333));
+  background: linear-gradient(0deg, rgba(51, 51, 51, .1) 33%, #333333 100%);
+  -webkit-animation: spin 0.8s linear 0s infinite;
+          animation: spin 0.8s linear 0s infinite;
+  margin-left: 20px;
+}
+.l-gnav .result-box .result-inner .spin {
+  display: none;
+}
+.l-gnav .result-box .result-inner .spin-core {
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+  border-radius: 50%;
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+.l-gnav .result-box .gnav-btn {
+  margin: 0 auto;
+  background: #333333;
+  color: #fff;
+  text-align: center;
+  width: 40%;
+  padding: 10px;
+}
+/* ------------------------------------------------
+	l-grid l-frame
+------------------------------------------------ */
+.l-entry {
+  margin: 20px auto 0px auto;
+  width: 100%;
+}
+.l-top .l-entry {
+  margin: 80px auto 0px auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.l-frame {
+  margin: 0 auto 120px auto;
+  max-width: 1440px;
+  position: relative;
+  width: 93.05556%;
+}
+
+.l-contents {
+  width: 100%;
+}
+.l-top .l-contents {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  grid-template-rows: auto;
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
+  row-gap: 80px;
+  margin-top: 120px;
+}
+.l-list .l-contents {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  grid-template-rows: auto;
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
+  row-gap: 80px;
+}
+.l-contents .l-list {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  grid-template-rows: auto;
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
+  row-gap: 80px;
+}
+.l-local .l-contents {
+  margin-top: 0;
+  margin-bottom: 120px;
+}
+.l-local .l-contents:last-child {
+  margin-bottom: 0;
+}
+.l-local .l-contents .detail-content {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: auto;
+  -webkit-column-gap: 60px;
+     -moz-column-gap: 60px;
+          column-gap: 60px;
+}
+.l-local .l-contents .detail-content .detail-box {
+  grid-row: 1;
+  grid-column: 2/3;
+}
+.l-local .l-contents .detail-content .detail-aside {
+  grid-row: 1;
+  grid-column: 1/2;
+}
+
+/* ------------------------------------------------
+	l-grid l-aside
+------------------------------------------------ */
+.l-aside {
+  display: grid;
+  height: 100vh;
+  width: 70px;
+  border-right: 1px solid #eaeaea;
+  -webkit-transition: all 0.5s cubic-bezier(0, 0.81, 0.57, 0.99);
+  transition: all 0.5s cubic-bezier(0, 0.81, 0.57, 0.99);
+  --navinner-width:200px;
+}
+.l-aside .nav-btn {
+  position: relative;
+  width: 29px;
+  height: 19px;
+  grid-row: 1;
+  grid-column: 2/3;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.l-aside .nav-btn .btn-line {
+  width: 100%;
+  display: inline-block;
+  background: #333333;
+  height: 1px;
+  position: absolute;
+}
+.l-aside .nav-btn .btn-line:nth-of-type(2) {
+  top: 9px;
+}
+.l-aside .nav-btn .btn-line:nth-of-type(3) {
+  top: 18px;
+}
+.l-aside .nav-menu {
+  grid-row: 1;
+  grid-column: 1/2;
+  visibility: hidden;
+  position: absolute;
+  left: -100%;
+  width: 230px;
+}
+.l-aside .nav-inputbox {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 100vh;
+}
+.l-aside .nav-title {
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333333;
+}
+.l-aside .nav-inner {
+  display: grid;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  width: var(--navinner-width);
+  opacity: 0;
+}
+.l-aside .nav-inner:nth-of-type(1) {
+  margin-left: -80px;
+  margin-bottom: 20px;
+}
+.l-aside .nav-inner:nth-of-type(2) {
+  margin-left: -80px;
+}
+.l-aside .nav-inner:nth-of-type(3) {
+  margin-left: -80px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.l-aside .nav-inner:nth-of-type(3) .search {
+  width: 100%;
+  height: 24px;
+  outline: 0;
+  background: #f7f7f7;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 14px 10px 12px 10px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  color: #333333;
+}
+.l-aside .nav-inner:nth-of-type(3) .search::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+.l-aside .nav-inner:nth-of-type(3) .search::-moz-placeholder {
+  color: #bfbfbf;
+}
+.l-aside .nav-inner:nth-of-type(3) .search::-ms-input-placeholder {
+  color: #bfbfbf;
+}
+.l-aside .nav-inner:nth-of-type(3) .search::placeholder {
+  color: #bfbfbf;
+}
+.l-aside .nav-inner:nth-of-type(4) {
+  margin-left: -80px;
+}
+.l-aside .nav-inner li {
+  font-size: 11px;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+.l-aside .nav-inner li label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.l-aside .nav-bottom {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+  left: 54px;
+  border-top: 1px solid #333333;
+  width: var(--navinner-width);
+  opacity: 0;
+}
+.l-aside .nav-bottom ul {
+  margin-top: 10px;
+}
+.l-aside .nav-bottom li {
+  font-size: 11px;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+.l-aside .nav-bottom li:first-child span:after {
+  content: "/";
+  display: inline-block;
+  position: relative;
+  margin: 0 10px;
+}
+.l-aside .nav-bottom li:first-child span:last-child:after {
+  display: none;
+}
+
+/* ------------------------------------------------
+	l-grid l-footer
+------------------------------------------------ */
+.l-footer {
+  max-width: 1440px;
+  width: 93.05556%;
+  margin: 60px auto 10px auto;
+}
+.footer-logo .f-logo .f-logo-kana {
+  font-size: 10px;
+  font-size: 1rem;
+  display: inline-block;
+  font-weight: normal;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+.footer-logo .f-txt {
+  font-size: 11px;
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin-top: 20px;
+}
+
+.footer-link {
+  margin-top: 40px;
+}
+.footer-link .f-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.footer-link .f-link li {
+  font-size: 11px;
+  font-size: 1.1rem;
+  margin-right: 15px;
+}
+.footer-link .f-link li:last-child {
+  margin-right: 0px;
+}
+
+.copy {
+  font-size: 10px;
+  font-size: 1rem;
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  justify-content: end;
+}
+
+/* ------------------------------------------------
+	パンクズ
+------------------------------------------------ */
+.breadcrumb {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+.breadcrumb li {
+  font-size: 10px;
+  font-size: 1rem;
+}
+.breadcrumb li a {
+  color: #808080;
+}
+.breadcrumb li:after {
+  position: relative;
+  display: inline-block;
+  content: "/";
+  margin: 0 5px;
+  color: #808080;
+}
+.breadcrumb li:last-child:after {
+  display: none;
+}
+
+#contents {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------
+	#contentsエリアここから
+------------------------------------------------ */
+#contents {
+  width: 100%;
+}
+
+/* ------------------------------------------------
+	.wrapper コンテツの外枠
+------------------------------------------------ */
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 50px;
+  padding: 0 5rem;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------
+	.container コンテンツの枠　大見出しで区切る場合
+------------------------------------------------ */
+.container {
+  width: 100%;
+  margin: 5 60px auto 160px auto;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.container.noSpace {
+  padding: 0;
+}
+.container.top {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.container.top-space {
+  margin-top: 0px;
+}
+.container:first-child {
+  margin-top: 0;
+}
+
+.container-inner {
+  width: 78.6%;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.container-inner:first-child {
+  margin-top: 0;
+}
+.container-inner.noSpace {
+  padding: 0;
+}
+
+.container-outer {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.container-outer.style01 {
+  background: #dbdbdb;
+}
+/* ------------------------------------------------
+	.boxContent containerの内側でコンテツつを区切る場合
+------------------------------------------------ */
+.content {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.edit .content {
+  margin-bottom: 120px;
+}
+.edit .content:last-child {
+  margin-bottom: 160px;
+}
+
+/* ------------------------------------------------
+	.innerシリーズここから
+------------------------------------------------ */
+.inner01 {
+  padding: 0 20px;
+}
+
+/* ------------------------------------------------
+	.sectionシリーズここから
+------------------------------------------------ */
+.section {
+  margin-bottom: 120px;
+  padding: 0 20px;
+}
+.section:last-child {
+  margin-bottom: 0;
+}
+
+/*////////////////////////////////////////////////////
+
+	汎用レイアウト（レイアウトセット参照）
+		ここではレイアウトに関わるスタイルのみ記載し、
+		背景色や背景画像、ボーダー、シャドウなどのデザインバリエーションは、
+		_pattern.scss内に継承クラスで指定すること
+		（例：.wrapper01.style01）
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	.boxListシリーズここから
+------------------------------------------------ */
+.boxList03, .boxList02, .boxList01 {
+  width: auto;
+}
+.boxList03 > a.boxContent, .boxList02 > a.boxContent, .boxList01 > a.boxContent {
+  text-decoration: none;
+  color: #cfcfcf;
+}
+.boxList03 > .boxContent, .boxList02 > .boxContent, .boxList01 > .boxContent {
+  padding: 0 10px;
+}
+.boxList03 > .boxContent > .boxInner, .boxList02 > .boxContent > .boxInner, .boxList01 > .boxContent > .boxInner {
+  padding: 10px;
+  border: 1px solid #626262;
+  display: block;
+}
+.boxList03 > .boxContent > a.boxInner, .boxList02 > .boxContent > a.boxInner, .boxList01 > .boxContent > a.boxInner {
+  text-decoration: none;
+}
+
+.boxList03 > .boxContent > .boxImg, .boxList03 > .boxContent > .boxInner > .boxImg, .boxList02 > .boxContent > .boxImg, .boxList02 > .boxContent > .boxInner > .boxImg, .boxList01 > .boxContent > .boxImg, .boxList01 > .boxContent > .boxInner > .boxImg {
+  margin: 10px auto;
+}
+.boxList03 > .boxContent > .boxImg:first-child, .boxList03 > .boxContent > .boxInner > .boxImg:first-child, .boxList02 > .boxContent > .boxImg:first-child, .boxList02 > .boxContent > .boxInner > .boxImg:first-child, .boxList01 > .boxContent > .boxImg:first-child, .boxList01 > .boxContent > .boxInner > .boxImg:first-child {
+  margin-top: 0;
+}
+.boxList03 > .boxContent > .boxImg:last-child, .boxList03 > .boxContent > .boxInner > .boxImg:last-child, .boxList02 > .boxContent > .boxImg:last-child, .boxList02 > .boxContent > .boxInner > .boxImg:last-child, .boxList01 > .boxContent > .boxImg:last-child, .boxList01 > .boxContent > .boxInner > .boxImg:last-child {
+  margin-bottom: 0;
+}
+
+.boxList03 > .boxContent > .boxTxt, .boxList03 > .boxContent > .boxInner > .boxTxt, .boxList02 > .boxContent > .boxTxt, .boxList02 > .boxContent > .boxInner > .boxTxt, .boxList01 > .boxContent > .boxTxt, .boxList01 > .boxContent > .boxInner > .boxTxt {
+  padding: 0 10px;
+}
+
+.boxList01 {
+  /*スマホレイアウトバリエーション*/
+}
+.boxList01 > .boxContent {
+  width: 50%;
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+}
+.boxList01 > .boxContent:nth-child(n+3) {
+  margin-top: 60px;
+}
+.boxList01 > .boxContent:nth-child(odd) {
+  clear: both;
+}
+
+/*/.boxList01*/
+.boxList02 {
+  /*.boxContent*/
+  /*スマホレイアウトバリエーション*/
+}
+.boxList02 > .boxContent {
+  width: 33.33333%;
+  float: left;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.boxList02 > .boxContent:nth-child(3n+1) {
+  clear: both;
+}
+.boxList02 > .boxContent:nth-child(n+4) {
+  margin-top: 60px;
+}
+
+/*/.boxList02*/
+.boxList03 {
+  /*スマホレイアウトバリエーション*/
+}
+.boxList03 > .boxContent {
+  width: 25%;
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+}
+.boxList03 > .boxContent:nth-child(n+5) {
+  margin-top: 20px;
+}
+.boxList03 > .boxContent:nth-child(4n+1) {
+  clear: both;
+}
+
+/*/.boxList03*/
+.boxTableList02, .boxTableList01 {
+  width: auto;
+}
+.boxTableList02 > .boxContent, .boxTableList01 > .boxContent {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10px;
+}
+.boxTableList02 > .boxContent > .boxWrapper, .boxTableList01 > .boxContent > .boxWrapper {
+  display: table;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.boxTableList02 > .boxContent > .boxWrapper.boxInner, .boxTableList01 > .boxContent > .boxWrapper.boxInner {
+  padding: 10px;
+  border: 1px solid #626262;
+}
+.boxTableList02 > .boxContent > .boxWrapper .boxImg, .boxTableList01 > .boxContent > .boxWrapper .boxImg,
+.boxTableList02 > .boxContent > .boxWrapper .boxTxt,
+.boxTableList01 > .boxContent > .boxWrapper .boxTxt {
+  display: table-cell;
+}
+.boxTableList02 > .boxContent > .boxWrapper .boxImg, .boxTableList01 > .boxContent > .boxWrapper .boxImg {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: top;
+}
+.boxTableList02 > .boxContent > .boxWrapper .boxImg:first-child, .boxTableList01 > .boxContent > .boxWrapper .boxImg:first-child {
+  padding-right: 10px;
+}
+.boxTableList02 > .boxContent > .boxWrapper .boxImg:last-child, .boxTableList01 > .boxContent > .boxWrapper .boxImg:last-child {
+  padding-left: 10px;
+}
+.boxTableList02 > .boxContent > .boxWrapper .boxTxt, .boxTableList01 > .boxContent > .boxWrapper .boxTxt {
+  vertical-align: middle;
+}
+.boxTableList02 > .boxContent > a.boxWrapper, .boxTableList01 > .boxContent > a.boxWrapper {
+  text-decoration: none;
+  color: #cfcfcf;
+}
+
+.boxTableList01 {
+  /*スマホレイアウトバリエーション*/
+}
+.boxTableList01 > .boxContent {
+  width: 50%;
+  float: left;
+  display: block;
+}
+.boxTableList01 > .boxContent:nth-child(odd) {
+  clear: both;
+}
+.boxTableList01 > .boxContent:nth-child(n+3) {
+  margin-top: 20px;
+}
+.boxTableList01 > .boxContent > .boxWrapper .boxImg {
+  width: 50%;
+}
+
+/*/.boxTableList01*/
+.boxTableList02 > .boxContent {
+  display: block;
+  width: 33.33333%;
+  float: left;
+}
+.boxTableList02 > .boxContent:nth-child(3n+1) {
+  clear: both;
+}
+.boxTableList02 > .boxContent:nth-child(n+4) {
+  margin-top: 20px;
+}
+.boxTableList02 > .boxContent > .boxWrapper .boxImg {
+  width: 30%;
+}
+
+/*/.boxTableList02*/
+/*////////////////////////////////////////////////////
+
+	汎用レイアウト（レイアウトセット参照）
+		ここではレイアウトに関わるスタイルのみ記載し、
+		背景色や背景画像、ボーダー、シャドウなどのデザインバリエーションは、
+		_pattern.scss内に継承クラスで指定すること
+		（例：.wrapper01.style01）
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	.boxFlexContentシリーズここから
+------------------------------------------------ */
+.box-flex-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*IE9以下*/
+}
+.box-flex-content.reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.box-flex-content.type01 {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+.box-flex-content.type01 > .box-img {
+  width: 34.8%;
+}
+.box-flex-content.type01 > .box-content {
+  width: 65.2%;
+}
+.box-flex-content.type02 > .box-img {
+  width: 34.8%;
+}
+.box-flex-content.type02 > .box-content {
+  width: 65.2%;
+}
+
+/* ------------------------------------------------
+	.box-flexListシリーズここから
+------------------------------------------------ */
+.box-flexList01 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.box-flexList01 > .box-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 25%;
+}
+.box-flexList01 > .box-content > .box-txt {
+  padding: 20px;
+}
+.box-flexList01.type01 > .box-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 13%;
+  height: auto;
+}
+
+.box-flexList02 {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.box-flexList02 > .box-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.box-flexList02 > .box-content > .type01 {
+  width: 338px;
+}
+.box-flexList02 > .box-content > .box-txt {
+  padding: 20px;
+}
+.box-flexList02.row4 > .box-content {
+  width: 25%;
+}
+.box-flexList02.row2-type01 {
+  margin-bottom: 40px;
+}
+.box-flexList02.row2-type01:last-child {
+  margin-bottom: 25px;
+}
+.box-flexList02.row2-type01 > .box-content {
+  width: 47%;
+  margin-bottom: 30px;
+}
+
+.box-flexList03 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.box-flexList03 > .box-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 33.33333%;
+  margin-bottom: 60px;
+}
+.box-flexList03 > .box-content > .box-txt {
+  padding: 20px;
+}
+.box-flexList03.type05 {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.box-flexList03.type05 > .box-content {
+  width: 30%;
+  margin-bottom: 80px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.box-flexList03.type05 > .box-content:last-child {
+  margin-bottom: 0;
+}
+.box-flexList03.type06 {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.box-flexList03.type06 > .box-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 33.33333%;
+  margin-bottom: 60px;
+}
+
+/*////////////////////////////////////////////////////
+
+	汎用スタイルパターン（レイアウトセット参照）
+		ここでは_layout.scssなどで用意したレイアウトパターンに適用する
+		スタイルのバリエーション(背景色や背景画像、ボーダー、シャドウなど)を継承クラスとして指定してください。
+		例：
+			.wrapper01,
+			.wrapper02 {
+				&.style01 {
+
+				}
+				&.style02 {
+
+				}
+			}
+
+////////////////////////////////////////////////////*/
+.ico-circle {
+  width: 60px;
+  height: 60px;
+  /* 50%でもOK */
+  border-radius: 50%;
+  background-color: #fff;
+  /* 円の色 */
+}
+
+/*////////////////////////////////////////////////////
+
+	テキスト、見出しの汎用スタイル
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	テキスト
+------------------------------------------------ */
+.txt {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.txt-cap {
+  font-size: 12px;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #808080;
+}
+
+.box-tit01 {
+  font-size: 22px;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.box-tit02 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.box-tit03 {
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.txt-em01 {
+  font-weight: bold;
+}
+
+.txt-em02 {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(40%, #ffe79d));
+  background: linear-gradient(transparent 70%, #ffe79d 40%);
+}
+
+.txt-color01 {
+  color: #FFF159;
+}
+
+.txt-small {
+  font-size: 10px;
+  font-size: 10px;
+  font-size: 1rem;
+}
+.txt-small.type01 {
+  display: inline-block;
+  line-height: 23px;
+  line-height: 2.3rem;
+}
+
+/* ------------------------------------------------
+	見出し
+------------------------------------------------ */
+.local-title {
+  line-height: 1.6;
+  font-weight: bold;
+  font-size: 30px;
+  font-size: 3rem;
+  color: #333333;
+  letter-spacing: 0.15em;
+  position: relative;
+  width: 100%;
+  font-family: quicksand;
+}
+
+.list-tit {
+  line-height: 1.6;
+  font-weight: bold;
+  font-size: 30px;
+  font-size: 3rem;
+  color: #333333;
+  letter-spacing: 0.15em;
+  position: relative;
+  width: 100%;
+  font-family: quicksand;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.title02 {
+  line-height: 1.6;
+  font-weight: lighter;
+  font-size: 22px;
+  font-size: 22px;
+  font-size: 2.2rem;
+  color: #333333;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  font-weight: bold;
+}
+
+.title03 {
+  line-height: 1.6;
+  font-weight: lighter;
+  font-size: 20px;
+  font-size: 20px;
+  font-size: 2rem;
+  color: #333333;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  font-weight: bold;
+}
+
+.sim-tit {
+  font-size: 20px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.f-tit {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+/*
+# リストスタイル .ulBasic01
+
+ここにコメントとか説明入れたりすると便利！
+
+標準の箇条書きリストスタイル`.ulBasic01`
+
+```
+<ul class="ulBasic01">
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+</ul>
+```
+*/
+.ulBasic01 li {
+  padding-left: 15px;
+  position: relative;
+}
+.ulBasic01 li:before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: #dbdbdb;
+  position: absolute;
+  top: 7px;
+  left: 2px;
+  border-radius: 100%;
+}
+
+.ulBasic {
+  width: 100%;
+  margin-top: 3px;
+  border-top: solid 1px #454545;
+}
+.ulBasic li {
+  position: relative;
+  margin: 0 0 10px 15px;
+}
+.ulBasic li:first-child {
+  margin-top: 10px;
+}
+.ulBasic li:last-child {
+  margin-bottom: 0px;
+}
+
+/*
+# リストスタイル .ulList01
+
+「/」で区切る並列リスト`.ulList01`
+
+```
+<ul class="ulList01">
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+</ul>
+```
+*/
+.ulList01 {
+  text-align: center;
+}
+.ulList01.left {
+  text-align: left;
+}
+.ulList01 li {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 5px 10px 0 0;
+}
+.ulList01 li:after {
+  content: "/";
+  padding-left: 10px;
+}
+.ulList01 li:last-child:after {
+  display: none;
+}
+
+.ulCaution01 {
+  padding-left: 1em;
+}
+.ulCaution01.small {
+  font-size: 15px;
+  font-size: 15px;
+  font-size: 1.5rem;
+}
+.ulCaution01 li {
+  text-align: left;
+  text-indent: -1em;
+}
+
+/*////////////////////////////////////////////////////
+
+	汎用リスト
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	ol li
+------------------------------------------------ */
+.olBasic01 li {
+  list-style: decimal;
+  margin-left: 2em;
+}
+
+/*////////////////////////////////////////////////////
+
+	汎用リスト
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	記述リスト dl dt dd
+------------------------------------------------ */
+.dlBasic01 dt, .dlBasic01 dd {
+  padding: 10px 0;
+}
+.dlBasic01 dt:first-child, .dlBasic01 dt:nth-child(2), .dlBasic01 dd:first-child, .dlBasic01 dd:nth-child(2) {
+  padding-top: 0;
+}
+.dlBasic01 dt:last-child, .dlBasic01 dt:nth-last-child(2), .dlBasic01 dd:last-child, .dlBasic01 dd:nth-last-child(2) {
+  padding-bottom: 0;
+}
+.dlBasic01 dt {
+  clear: both;
+  float: left;
+  width: 140px;
+  line-height: 1.4;
+  font-size: 18px;
+  font-size: 18px;
+  font-size: 1.8rem;
+  color: #dbdbdb;
+}
+.dlBasic01 dd {
+  margin-left: 140px;
+  padding-left: 10px;
+  position: relative;
+}
+.dlBasic01 dd:before {
+  border-width: 3px 0 3px 4px;
+  border-color: transparent transparent transparent #565656;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  top: 18px;
+  left: 0;
+}
+.dlBasic01 dd:nth-child(2):before {
+  top: 8px;
+}
+
+.dlInquiry01 {
+  display: table;
+  width: 100%;
+  border: 1px solid #454545;
+  background-color: #333333;
+}
+.dlInquiry01 > dt, .dlInquiry01 > dd {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10px;
+  text-align: center;
+}
+.dlInquiry01 > dd {
+  border-left: 1px solid #454545;
+}
+/*////////////////////////////////////////////////////
+
+	汎用テーブル 
+		※入れ子にした際に孫のテーブルにスタイルが引き継がれないよう、
+		　　&>を使用したスタイル設定を推奨
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	テーブル
+------------------------------------------------ */
+/*ベーシックなテーブルスタイル*/
+/*装飾のないシンプルなテーブル*/
+.tb_simple01 {
+  width: auto !important;
+  border: none !important;
+  background: none !important;
+}
+.tb_simple01 > tr > th, .tb_simple01 > tr > td {
+  text-align: left !important;
+  vertical-align: top !important;
+  width: auto !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.tb_simple01 > tr > th {
+  white-space: nowrap;
+  padding-right: 1em;
+}
+
+/*////////////////////////////////////////////////////
+
+	その他の汎用スタイル
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	デバイスごとの表示切り分け
+	例： <br class="pc">
+------------------------------------------------ */
+
+/* ------------------------------------------------
+	color
+------------------------------------------------ */
+/* ------------------------------------------------
+	囲み枠
+------------------------------------------------ */
+/* ------------------------------------------------
+	画像スタイル
+------------------------------------------------ */
+/* ------------------------------------------------
+	タブ
+------------------------------------------------ */
+/* ------------------------------------------------
+	スペース
+------------------------------------------------ */
+.space-topXL {
+  margin-top: 80px;
+}
+
+/*////////////////////////////////////////////////////
+
+	ページごとの個別スタイル
+	※サイト規模によってはさらにファイルを分けること
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	トップページここから
+------------------------------------------------ */
+.l-box {
+  opacity: 0;
+  -webkit-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+.contents-list {
+  width: auto;
+  height: auto;
+}
+.contents-list img {
+  width: 100%;
+  height: auto;
+}
+.contents-list .date {
+  font-size: 10px;
+  font-size: 1rem;
+  color: #808080;
+  margin-bottom: 8px;
+}
+.contents-list .list-title {
+  font-size: 12px;
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+.contents-list .list-title a {
+  display: inline-block;
+  color: #333333;
+}
+.contents-list .box-img {
+  width: 100%;
+}
+
+.mvtype {
+  font-size: 60px;
+  font-size: 6rem;
+  font-weight: bold;
+}
+.mvtype:after {
+  content: "|";
+  position: relative;
+  left: 10px;
+  font-weight: normal;
+  -webkit-animation: mvtype 0.8s ease 0s infinite normal;
+          animation: mvtype 0.8s ease 0s infinite normal;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes mvtype {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes mvtype {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------
+  使い回しアイテム
+------------------------------------------------ */
+.category-tag {
+  margin-top: 12px;
+  line-height: 1;
+}
+.detail-aside .category-tag {
+  margin-top: 0px;
+  padding: 8px 0 8px 0;
+}
+.category-tag li {
+  font-size: 11px;
+  font-size: 1.1rem;
+  margin-right: 5px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.category-tag li a {
+  color: #333333;
+}
+.category-tag li:after {
+  content: "/";
+  display: inline-block;
+  margin-left: 5px;
+  color: #808080;
+  font-size: 10px;
+  font-size: 1rem;
+}
+.category-tag li:last-child {
+  margin-right: 0;
+}
+.category-tag li:last-child:after {
+  display: none;
+}
+
+.type-tag {
+  line-height: 1;
+  margin-top: 5px;
+}
+.type-tag li {
+  font-size: 11px;
+  font-size: 1.1rem;
+  margin-right: 10px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.type-tag li a {
+  color: #333333;
+}
+.type-tag li:last-child {
+  margin-right: 0;
+}
+.detail-aside .type-tag {
+  padding: 0px 0 16px 0;
+  margin-top: 0px;
+}
+
+/* ------------------------------------------------
+  一覧ページここから
+------------------------------------------------ */
+.entry-box {
+  margin: 60px 0 80px 0;
+}
+
+.inner-entry-box {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 30px;
+  font-size: 3rem;
+}
+.inner-entry-box .date {
+  font-size: 10px;
+  font-size: 1rem;
+  color: #808080;
+  margin-bottom: 30px;
+}
+
+/* ------------------------------------------------
+  記事ページここから
+------------------------------------------------ */
+.detail-aside .detail-box-inner {
+  position: sticky;
+  top: 75px;
+}
+.detail-aside .detail-img img {
+  width: 100%;
+  height: auto;
+}
+.detail-aside .detail-info {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+.detail-aside .detail-info li {
+  font-size: 12px;
+  font-size: 1.2rem;
+  padding: 7px 0;
+  display: table;
+  width: 100%;
+}
+.detail-aside .detail-info li:nth-child(odd) {
+  background: #f7f7f7;
+}
+.detail-aside .detail-info .agenda {
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: inline-block;
+  width: 110px;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 12px;
+}
+.detail-aside .detail-info .agenda:after {
+  content: "-";
+  display: inline-block;
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transform: translateY(-54%);
+  transform: translateY(-54%);
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #808080;
+  margin: 0 10px;
+}
+.detail-aside .detail-link {
+  font-size: 12px;
+  font-size: 1.2rem;
+  margin: 30px auto 0 auto;
+  width: 60%;
+}
+.detail-aside .detail-tag {
+  padding-left: 12px;
+}
+
+.content-movie {
+  margin: 30px 0 30px 0;
+}
+.content-movie .movie {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* アスペクト比16:9の場合 */
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  border: 1px solid #333333;
+}
+.content-movie .movie iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.detain-innerbox {
+  margin-bottom: 40px;
+}
+.detain-innerbox:last-child {
+  margin-bottom: 0;
+}
+
+.similar-box {
+  background: #f7f7f7;
+  padding: 30px;
+  padding: 3rem;
+}
+.similar-box .similar-box-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+}
+.similar-box .similar-box-inner .l-box {
+  width: 25%;
+}
+
+/* ------------------------------------------------
+  検索件数
+------------------------------------------------ */
+.number {
+  display: none;
+}
+
+/*////////////////////////////////////////////////////
+
+	状態の変化があるcssを書く
+
+	is-○○　系統
+
+////////////////////////////////////////////////////*/
+.is-view .l-gnav {
+  visibility: visible;
+  position: fixed;
+  right: 0;
+}
+.is-view .l-gnav .link-gnav:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  content: "";
+  width: 43px;
+  height: 43px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  opacity: 0;
+  border: 1px solid rgba(255, 255, 255, .3);
+  -webkit-animation: is-circle 0.8s;
+          animation: is-circle 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes is-circle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes is-circle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.is-view .l-gnav .gnav-botton {
+  position: relative;
+  z-index: 9999;
+}
+.is-view .l-gnav .gnav-botton .gnav-line:nth-of-type(1) {
+  background: #333333;
+  -webkit-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -4px;
+  left: 2px;
+  opacity: 0;
+  width: 31px;
+  -webkit-animation: is-gnav-line01 0.8s;
+          animation: is-gnav-line01 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes is-gnav-line01 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes is-gnav-line01 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.is-view .l-gnav .gnav-botton .gnav-line:nth-of-type(2) {
+  opacity: 0;
+}
+.is-view .l-gnav .gnav-botton .gnav-line:nth-of-type(3) {
+  -webkit-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 16px;
+  left: 1px;
+  width: 31px;
+  background: #333333;
+  opacity: 0;
+  -webkit-animation: is-gnav-line02 0.8s;
+          animation: is-gnav-line02 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes is-gnav-line02 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes is-gnav-line02 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.is-view .l-gnav .gnav-menu {
+  height: 100vh;
+  -webkit-transition: all 0.5s cubic-bezier(0, 0.31, 0, 1);
+  transition: all 0.5s cubic-bezier(0, 0.31, 0, 1);
+}
+
+.logo {
+  z-index: 9999;
+}
+
+.is-load .spin {
+  display: block !important;
+}
+.is-load .num {
+  display: none;
+}
+
+/* ------------------------------------------------
+	サイドメニュー
+------------------------------------------------ */
+.is-visible {
+  overflow: hidden;
+}
+.is-visible .btn-line {
+  position: relative;
+  z-index: 9999;
+}
+.is-visible .btn-line:nth-of-type(1) {
+  -webkit-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -1px;
+  left: 5px;
+  opacity: 0;
+  -webkit-animation: is-gnav-line01 0.8s;
+          animation: is-gnav-line01 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@keyframes is-gnav-line01 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.is-visible .btn-line:nth-of-type(2) {
+  top: -3px !important;
+  opacity: 0;
+  height: 24px;
+}
+.is-visible .btn-line:nth-of-type(3) {
+  -webkit-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 19px !important;
+  left: 4px;
+  opacity: 0;
+  -webkit-animation: is-gnav-line02 0.8s;
+          animation: is-gnav-line02 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@keyframes is-gnav-line02 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.is-visible .l-aside {
+  width: 350px;
+  height: 100vh;
+  grid-template-columns: 1fr 70px;
+  grid-template-rows: auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.is-visible .nav-btn {
+  grid-row: 1;
+  grid-column: 2/3;
+  justify-self: center;
+}
+.is-visible .nav-menu {
+  visibility: visible;
+  left: 0;
+  grid-row: 1;
+  grid-column: 1/2;
+  width: 306px;
+  height: 100vh;
+}
+.is-visible .nav-inner {
+  opacity: 1;
+  margin-left: 0;
+}
+.is-visible .nav-inner:nth-of-type(1) {
+  margin-left: 0px;
+  -webkit-transition: all 1s 0.2s cubic-bezier(0, 0.85, 0.16, 1.01);
+  transition: all 1s 0.2s cubic-bezier(0, 0.85, 0.16, 1.01);
+}
+.is-visible .nav-inner:nth-of-type(2) {
+  margin-left: 0px;
+  -webkit-transition: all 1s 0.3s cubic-bezier(0, 0.85, 0.16, 1.01);
+  transition: all 1s 0.3s cubic-bezier(0, 0.85, 0.16, 1.01);
+}
+.is-visible .nav-inner:nth-of-type(3) {
+  margin-left: 0px;
+  -webkit-transition: all 1s 0.4s cubic-bezier(0, 0.85, 0.16, 1.01);
+  transition: all 1s 0.4s cubic-bezier(0, 0.85, 0.16, 1.01);
+}
+.is-visible .nav-inner:nth-of-type(4) {
+  margin-left: 0px;
+  -webkit-transition: all 1s 0.5s cubic-bezier(0, 0.85, 0.16, 1.01);
+  transition: all 1s 0.5s cubic-bezier(0, 0.85, 0.16, 1.01);
+}
+.is-visible .nav-bottom {
+  -webkit-transition: all 1s 0.8s ease;
+  transition: all 1s 0.8s ease;
+  opacity: 1;
+}
+
+/* ------------------------------------------------
+	language
+------------------------------------------------ */
+.is-lang {
+  font-weight: bold;
+  position: relative;
+}
+.is-lang:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background: #333333;
+  height: 1px;
+  width: 14px;
+  bottom: -2px;
+}
+#en .is-lang:before {
+  width: 17px;
+}
+
+.other {
+  opacity: 0;
+}
+
+.is-l-box {
+  opacity: 1;
+  -webkit-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+#typewriter::after {
+  content: "|";
+  -webkit-animation-name: blink;
+          animation-name: blink;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  body {
+    font-size: 15px;
+    font-size: 1.5rem;
+  }
+  .container {
+    margin: 30px 0 0 0;
+  }
+  .container-inner {
+    margin: 30px 0 0 0;
+  }
+  .section {
+    margin-bottom: 30px;
+  }
+  .boxList01 > .boxContent:nth-child(n+3) {
+    margin-top: 30px;
+  }
+  .ulList01 li {
+    white-space: normal;
+    padding: 10px 0 0;
+    display: block;
+  }
+  .ulList01 li:after {
+    display: none;
+  }
+  .dlBasic01 dt {
+    float: none;
+    width: auto;
+  }
+  .dlBasic01 dd {
+    margin-left: 0;
+    padding-left: 2rem;
+  }
+  .dlBasic01 dd:before {
+    left: 10px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .link-gnav {
+    position: relative;
+  }
+  .link-gnav:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    content: "";
+    width: 22px;
+    height: 22px;
+    margin: -12px 0 0 -12px;
+    border-radius: 50%;
+    border: 1px solid #cfcfcf;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+    opacity: 0;
+  }
+  .link-gnav:hover {
+    cursor: pointer;
+  }
+  .link-gnav:hover:after {
+    -webkit-animation: circle 0.5s;
+            animation: circle 0.5s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+  }
+  @-webkit-keyframes circle {
+    0% {
+      -webkit-transform: scale(0.1);
+              transform: scale(0.1);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      opacity: 0;
+      display: none;
+    }
+  }
+  @keyframes circle {
+    0% {
+      -webkit-transform: scale(0.1);
+              transform: scale(0.1);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      opacity: 0;
+      display: none;
+    }
+  }
+  a:hover {
+    cursor: pointer;
+  }
+  a.link01 {
+    -webkit-transition: all 0.4s cubic-bezier(0, 0.01, 0, 1.02);
+    transition: all 0.4s cubic-bezier(0, 0.01, 0, 1.02);
+  }
+  a.link01:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  a.link02:hover {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    cursor: pointer;
+  }
+  .linkBl01 {
+    overflow: hidden;
+    display: block;
+  }
+  .linkBl01 img {
+    -webkit-transition: all 0.8s cubic-bezier(0, 0.58, 0.67, 1.02);
+    transition: all 0.8s cubic-bezier(0, 0.58, 0.67, 1.02);
+  }
+  .linkBl01:hover {
+    cursor: pointer;
+  }
+  .linkBl01:hover img {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  .l-grid {
+    display: grid;
+  }
+  .sp {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    min-width: 320px;
+    margin: 0;
+  }
+  header {
+    display: block;
+    height: 50px;
+  }
+  aside {
+    display: none;
+  }
+  footer {
+    width: 100%;
+    left: inherit;
+  }
+  .l-grid {
+    grid-template-columns: auto;
+  }
+  .l-grid header .l-header {
+    grid-template-columns: 1fr 78px 78px;
+  }
+  .l-header nav {
+    display: block;
+  }
+  .logo {
+    top: 15px;
+    left: calc(50% - var(--sp-logo));
+  }
+  .l-gnav .gnav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow-y: scroll;
+    opacity: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    -webkit-transition: all 0.5s cubic-bezier(0.58, -0.01, 1, 0.11);
+    transition: all 0.5s cubic-bezier(0.58, -0.01, 1, 0.11);
+  }
+  .gnav-result {
+    height: 80px;
+    width: 92%;
+    background: #333333;
+  }
+  .gnav-result .result-box {
+    width: 80%;
+    color: #fff;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: auto;
+    margin: 0 auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
+  }
+  .gnav-result .result-num {
+    font-size: 1.8rem;
+    border: 1px solid #fff;
+    padding: 6px 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .gnav-result .result-num span {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-bottom: 4px;
+    margin-right: 5px;
+  }
+  .gnav-result .gnav-btn {
+    color: #333333;
+    background: #f7f7f7;
+    padding: 10px 10px;
+    width: 80%;
+    text-align: center;
+  }
+  .l-top .l-entry {
+    margin: 40px auto 0px auto;
+  }
+  .l-frame {
+    margin: 0 auto 60px auto;
+    width: 90%;
+  }
+  .l-top .l-contents {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    -webkit-column-gap: 25px;
+       -moz-column-gap: 25px;
+            column-gap: 25px;
+    margin-top: 40px;
+  }
+  .l-list .l-contents {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    -webkit-column-gap: 25px;
+       -moz-column-gap: 25px;
+            column-gap: 25px;
+  }
+  .l-contents .l-list {
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    -webkit-column-gap: 25px;
+       -moz-column-gap: 25px;
+            column-gap: 25px;
+  }
+  .l-local .l-contents .detail-content {
+    grid-template-columns: auto;
+  }
+  .l-local .l-contents .detail-content .detail-box {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  .l-local .l-contents .detail-content .detail-aside {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    margin-bottom: 40px;
+  }
+  .l-contents {
+    margin-top: 40px;
+  }
+  .l-footer {
+    margin: 20px auto;
+    width: 100%;
+    padding: 7% 7% 0 7%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  .footer-logo .f-logo img {
+    width: 140px;
+  }
+  .footer-logo .f-logo .f-logo-kana {
+    display: block;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  .footer-logo .f-txt {
+    margin-top: 20px;
+  }
+  .footer-link {
+    margin-top: 20px;
+  }
+  .boxImg img {
+    width: 100%;
+    height: auto;
+  }
+  #contents {
+    overflow: hidden;
+    position: relative;
+  }
+  .wrapper {
+    width: 100%;
+    padding: 0;
+  }
+  .container {
+    min-width: 100%;
+    width: 100%;
+    padding: 0 3rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 60px auto 40px auto;
+  }
+  .container-inner {
+    min-width: 100%;
+    width: 100%;
+    padding: 0 4%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 60px auto 40px auto;
+  }
+  .edit .content {
+    margin-bottom: 60px;
+  }
+  .edit .content:last-child {
+    margin-bottom: 40px;
+  }
+  .section {
+    margin-bottom: 60px;
+  }
+  .boxList01 {
+    /*1列表示*/
+    /*/.type01*/
+    /*1列表示、画像とテキストを1:1で並列表示*/
+  }
+  .boxList01.type01 > .boxContent {
+    width: 100%;
+    float: none;
+  }
+  .boxList01.type01 > .boxContent:nth-child(n+2) {
+    margin-top: 60px !important;
+  }
+  .boxList01.type02 > .boxContent {
+    display: table;
+    width: 100%;
+  }
+  .boxList01.type02 > .boxContent:nth-child(n+2) {
+    margin-top: 20px !important;
+  }
+  .boxList01.type02 > .boxContent > .boxImg, .boxList01.type02 > .boxContent > .boxTxt, .boxList01.type02 > .boxContent > .boxInner > .boxImg, .boxList01.type02 > .boxContent > .boxInner > .boxTxt {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: table-cell;
+  }
+  .boxList01.type02 > .boxContent > .boxImg, .boxList01.type02 > .boxContent > .boxInner > .boxImg {
+    vertical-align: top;
+  }
+  .boxList01.type02 > .boxContent > .boxTxt, .boxList01.type02 > .boxContent > .boxInner > .boxTxt {
+    vertical-align: middle;
+  }
+  .boxList01.type02 > .boxContent > .boxImg, .boxList01.type02 > .boxContent > .boxInner > .boxImg {
+    width: 50%;
+  }
+  .boxList02 > .boxContent {
+    width: 100%;
+    float: none;
+  }
+  .boxList02 > .boxContent:nth-child(n+2) {
+    margin-top: 60px !important;
+  }
+  .boxList02 > .boxContent > .boxImg, .boxList02 > .boxContent > .boxInner > .boxImg {
+    max-width: 412px;
+  }
+  .boxList02 {
+    /* 画像を横100%表示。スマホでは767pxの画像を用意すること。 */
+    /* 画像とテキストを1:2で並列表示; */
+    /*/.type02*/
+  }
+  .boxList02.type01 > .boxContent > .boxImg, .boxList02.type01 > .boxContent > .boxInner > .boxImg {
+    width: 100%;
+    max-width: none;
+  }
+  .boxList02.type02 > .boxContent {
+    display: table;
+    width: 100%;
+  }
+  .boxList02.type02 > .boxContent:nth-child(n+2) {
+    margin-top: 20px !important;
+  }
+  .boxList02.type02 > .boxContent > .boxImg, .boxList02.type02 > .boxContent > .boxTxt, .boxList02.type02 > .boxContent > .boxInner > .boxImg, .boxList02.type02 > .boxContent > .boxInner > .boxTxt {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: table-cell;
+  }
+  .boxList02.type02 > .boxContent > .boxImg, .boxList02.type02 > .boxContent > .boxInner > .boxImg {
+    vertical-align: top;
+  }
+  .boxList02.type02 > .boxContent > .boxTxt, .boxList02.type02 > .boxContent > .boxInner > .boxTxt {
+    vertical-align: middle;
+  }
+  .boxList02.type02 > .boxContent > .boxImg, .boxList02.type02 > .boxContent > .boxInner > .boxImg {
+    width: 25%;
+    margin: 0;
+  }
+  .boxList03 > .boxContent {
+    width: 50%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .boxList03 > .boxContent:nth-child(n+3) {
+    margin-top: 20px;
+  }
+  .boxList03 > .boxContent:nth-child(odd) {
+    clear: both;
+  }
+  .boxList03 {
+    /* 一列表示 */
+    /*/.type01*/
+    /* 一列表示、画像とテキストを1:3で並列表示; */
+    /*/.type02*/
+  }
+  .boxList03.type01 > .boxContent {
+    width: 100%;
+    float: none;
+  }
+  .boxList03.type01 > .boxContent:nth-child(n+2) {
+    margin-top: 60px !important;
+  }
+  .boxList03.type02 > .boxContent {
+    display: table;
+    width: 100%;
+  }
+  .boxList03.type02 > .boxContent:nth-child(n+2) {
+    margin-top: 20px !important;
+  }
+  .boxList03.type02 > .boxContent > .boxImg, .boxList03.type02 > .boxContent > .boxTxt, .boxList03.type02 > .boxContent > .boxInner > .boxImg, .boxList03.type02 > .boxContent > .boxInner > .boxTxt {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: table-cell;
+  }
+  .boxList03.type02 > .boxContent > .boxImg, .boxList03.type02 > .boxContent > .boxInner > .boxImg {
+    vertical-align: top;
+  }
+  .boxList03.type02 > .boxContent > .boxTxt, .boxList03.type02 > .boxContent > .boxInner > .boxTxt {
+    vertical-align: middle;
+  }
+  .boxList03.type02 > .boxContent > .boxImg, .boxList03.type02 > .boxContent > .boxInner > .boxImg {
+    width: 25%;
+  }
+  .boxTableList01 > .boxContent {
+    width: auto;
+    float: none;
+  }
+  .boxTableList01 > .boxContent:nth-child(n+2) {
+    margin-top: 20px;
+  }
+  .boxTableList01.type01 > .boxContent > .boxWrapper .boxImg {
+    width: 30%;
+  }
+  .boxTableList02 > .boxContent {
+    width: 100%;
+  }
+  .boxTableList02 > .boxContent:nth-child(n+2) {
+    margin-top: 20px;
+  }
+  .box-flex-content.type01 > .box-img {
+    width: 100%;
+  }
+  .box-flex-content.type01 > .box-content {
+    width: 100%;
+  }
+  .box-flex-content.type02 > .box-img {
+    width: 100%;
+  }
+  .box-flex-content.type02 > .box-content {
+    width: 100%;
+  }
+  .box-flexList01 .box-content, .box-flexList01.row4 > .box-content {
+    width: 100%;
+  }
+  .box-flexList01.type01 > .box-content, .box-flexList01.row4.type01 > .box-content {
+    width: 50%;
+    float: left;
+  }
+  .box-flexList01.type02 > .box-content, .box-flexList01.row4.type02 > .box-content {
+    width: 100%;
+    display: table;
+  }
+  .box-flexList01.type02 > .box-content > .boxInner, .box-flexList01.row4.type02 > .box-content > .boxInner {
+    display: table-row;
+  }
+  .box-flexList01.type02 > .box-content > .box-img .box-flexList01.type02 > .box-content > .box-txt, .box-flexList01.type02 > .box-content > .box-img .box-flexList01.row4.type02 > .box-content > .box-txt, .box-flexList01.row4.type02 > .box-content > .box-img .box-flexList01.type02 > .box-content > .box-txt, .box-flexList01.row4.type02 > .box-content > .box-img .box-flexList01.row4.type02 > .box-content > .box-txt {
+    display: table-cell;
+    width: 50%;
+    vertical-align: middle;
+  }
+  .box-flexList02 {
+    width: 100%;
+  }
+  .box-flexList02 > .box-content > .type01 {
+    width: 100%;
+  }
+  .box-flexList02 .box-content, .box-flexList02.row4 > .box-content {
+    width: 100%;
+  }
+  .box-flexList02.type01 > .box-content, .box-flexList02.row4.type01 > .box-content {
+    width: 50%;
+    float: left;
+  }
+  .box-flexList02.type02 > .box-content, .box-flexList02.row4.type02 > .box-content {
+    width: 100%;
+    display: table;
+  }
+  .box-flexList02.row2-type01 > .box-content {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .box-flexList02.row2-type01 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .box-flexList03 {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .box-flexList03 > .box-content {
+    width: 46%;
+    margin-bottom: 30px;
+  }
+  .box-flexList03.type04 {
+    display: inline;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .box-flexList03.type04 > .box-content {
+    width: 46%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  .box-flexList03.type05 {
+    display: inline;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .box-flexList03.type05 > .box-content {
+    width: 46%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  .box-flexList03.type06 {
+    display: block;
+  }
+  .box-flexList03.type06 > .box-content {
+    width: 46%;
+    display: block;
+    margin-bottom: 30px;
+  }
+  .box-flexList03.type06 > .box-content:nth-child(even) {
+    float: right;
+  }
+  .box-flexList03.type06 > .box-content:nth-child(odd) {
+    float: left;
+  }
+  .local-title {
+    font-size: 2.2rem;
+    margin-top: 30px;
+  }
+  .list-tit {
+    font-size: 2.2rem;
+    margin-top: 30px;
+  }
+  .title02 {
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .title03 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .f-tit {
+    font-size: 1.4rem;
+  }
+  .dlInquiry01 {
+    display: block;
+  }
+  .dlInquiry01 > dt, .dlInquiry01 > dd {
+    display: block;
+  }
+  .dlInquiry01 > dd {
+    border-left: none;
+  }
+  .pc {
+    display: none;
+  }
+  .space-topXL {
+    margin-top: 40px;
+  }
+  .mvtype {
+    font-size: clamp(26px, 1vw, 30px);
+  }
+  .mvimg img {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+  }
+  .entry-box {
+    margin: 40px 0 40px 0;
+  }
+  .inner-entry-box {
+    width: 100%;
+  }
+  .inner-entry-box .date {
+    margin-bottom: 10px;
+  }
+  .similar-box {
+    margin: 40px 0 60px 0;
+  }
+  .similar-box .similar-box-inner {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-column-gap: 2%;
+       -moz-column-gap: 2%;
+            column-gap: 2%;
+  }
+  .similar-box .similar-box-inner .l-box {
+    width: 48%;
+    margin-bottom: 40px;
+  }
+  .is-view .l-gnav .gnav-menu {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0%;
+    z-index: 999;
+    -webkit-transition: all 0.5s cubic-bezier(0, 0.31, 0, 1);
+    transition: all 0.5s cubic-bezier(0, 0.31, 0, 1);
+    opacity: 1;
+    background: #fff;
+  }
+  .is-view .l-gnav .gnav-menu .gnav-inner:nth-of-type(1) {
+    margin-top: 80px;
+    opacity: 1;
+  }
+  .is-view .l-gnav .gnav-menu .gnav-inner:nth-of-type(2), .is-view .l-gnav .gnav-menu .gnav-inner:nth-of-type(3), .is-view .l-gnav .gnav-menu .gnav-inner:nth-of-type(4), .is-view .l-gnav .gnav-menu .gnav-inner:nth-of-type(5), .is-view .l-gnav .gnav-menu .gnav-inner:nth-of-type(6) {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .l-grid {
+    display: grid;
+  }
+  .l-local .l-contents .detail-content {
+    grid-template-columns: 250px 1fr;
+    -webkit-column-gap: 30px;
+       -moz-column-gap: 30px;
+            column-gap: 30px;
+  }
+  .container {
+    min-width: 100%;
+  }
+  .container-inner {
+    min-width: 870px;
+  }
+  .inner-entry-box {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 767px) and (max-width: 320px) {
+  .boxList01.type01 > .boxContent:nth-child(n+2) {
+    margin-top: 30px !important;
+  }
+  .boxList02 > .boxContent:nth-child(n+2) {
+    margin-top: 30px !important;
+  }
+  .boxList03.type01 > .boxContent:nth-child(n+2) {
+    margin-top: 30px !important;
+  }
+}
+/*# sourceMappingURL=maps/style.css.map */

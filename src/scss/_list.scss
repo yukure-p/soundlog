@@ -1,0 +1,129 @@
+@charset "utf-8";
+/*
+# リストスタイル .ulBasic01
+ 
+ここにコメントとか説明入れたりすると便利！
+ 
+標準の箇条書きリストスタイル`.ulBasic01`
+ 
+```
+<ul class="ulBasic01">
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+</ul>
+```
+*/
+.ulBasic01 {
+	li {
+		padding-left: 15px;
+		position: relative;
+		&:before {
+			content: '';
+			display: block;
+			width: 4px;
+			height: 4px;
+			background-color: $baseColor06;
+			position: absolute;
+			top: 7px;
+			left: 2px;
+			border-radius: 100%;
+		}
+	}
+}
+
+
+.ulBasic {
+	width:100%;
+	margin-top:3px;
+	border-top:solid 1px $baseColor03;
+	li {
+		position: relative;
+		margin:0 0 10px 15px;
+		&:first-child{
+			margin-top:10px;
+		}
+		&:last-child{
+			margin-bottom:0px;
+		}
+        // span{
+	       //  color:$baseColor01;
+	       //  @include fz($fSizeXXS);
+        // }
+		// &:before {
+		// 	content: '';
+		// 	display: block;
+		// 	width: 4px;
+		// 	height: 4px;
+		// 	background-color: $baseColor06;
+		// 	position: absolute;
+		// 	top: 7px;
+		// 	left: 2px;
+		// 	border-radius: 100%;
+		// }
+	}
+}
+
+
+/*
+# リストスタイル .ulList01
+ 
+「/」で区切る並列リスト`.ulList01`
+ 
+```
+<ul class="ulList01">
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+	<li>箇条書きリスト</li>
+</ul>
+```
+*/
+.ulList01 {
+	text-align: center;
+	//左寄せの場合
+	&.left {
+		text-align: left;
+	}
+	li {
+		white-space: nowrap;
+		display: inline-block;
+		padding: $spaceS* 0.5 $spaceS 0 0;
+		@include media(spS){
+			white-space: normal;
+			padding: $spaceS 0 0;
+			display: block;
+		}
+		&:after {
+			content: '/';
+			padding-left: $spaceS;
+			@include media(spS){
+				display: none;
+			}
+		}
+		&:last-child:after {
+			display: none;
+		}
+	}
+}
+//注釈用
+.ulCaution01 {
+	padding-left: 1em;
+	&.small {
+		@include fz($fSizeS);
+	}
+	li {
+		text-align: left;
+		text-indent: -1em;
+	}
+}
+//サムネイルメニューリスト
+.ulThumb01 {
+}
+//ボタンリスト
+.ulBtn01 {
+}
+
+//ニュースリスト
+.ulNews01 {
+}
+

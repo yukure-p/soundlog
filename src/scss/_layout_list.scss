@@ -1,0 +1,327 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+	汎用レイアウト（レイアウトセット参照）
+		ここではレイアウトに関わるスタイルのみ記載し、
+		背景色や背景画像、ボーダー、シャドウなどのデザインバリエーションは、
+		_pattern.scss内に継承クラスで指定すること
+		（例：.wrapper01.style01）
+
+////////////////////////////////////////////////////*/
+
+/* ------------------------------------------------
+	.boxListシリーズここから
+------------------------------------------------ */
+%boxList {
+	width: auto;
+	@extend %clearfix;
+	&>a.boxContent {
+		text-decoration: none;
+		color: $baseColor05;
+	}
+	&>.boxContent{
+		padding: 0 $spaceS;
+		&>.boxInner {
+			padding: $spaceS;
+			border: 1px solid $baseColor04;
+			display: block;
+		}
+		&>a.boxInner {
+			text-decoration: none;
+		}
+	}
+}
+
+%boxListImg {
+	margin: $spaceS auto;
+	&:first-child {margin-top: 0;}
+	&:last-child {margin-bottom: 0;}
+}
+%boxListTxt {
+	padding: 0 $spaceS;
+}
+// 1列表示
+@mixin boxContentSp01 {
+	width: 100%;
+	float: none;
+	&:nth-child(n+2){
+		margin-top: $spaceL!important;
+		@include media(spS){
+			margin-top: $spaceL* 0.5!important;
+		}
+	}
+}
+// 画像とテキストの並列表示
+@mixin boxContentSp02 {
+	display: table;
+	width: 100%;
+	&:nth-child(n+2){
+		margin-top: $spaceR!important;
+	}
+	&>.boxImg, &>.boxTxt,
+	&>.boxInner>.boxImg, &>.boxInner>.boxTxt {
+		@include box-sizing;
+		display: table-cell;
+	}
+	&>.boxImg,
+	&>.boxInner>.boxImg {
+		vertical-align: top;
+	}
+	&>.boxTxt,
+	&>.boxInner>.boxTxt{
+		vertical-align: middle;
+	}
+}
+.boxList01 {
+	@extend %boxList;
+	&>.boxContent {
+		width: 50%;
+		float: left;
+		@include box-sizing;
+		display: block;
+		&:nth-child(n+3){
+			margin-top: $spaceL;
+			@include media(spS){
+				margin-top: $spaceM;
+			}
+		}
+		&:nth-child(odd){
+			clear: both;
+		}
+		&>.boxImg,
+		&>.boxInner>.boxImg {
+			@extend %boxListImg;
+		}
+		&>.boxTxt,
+		&>.boxInner>.boxTxt {
+			@extend %boxListTxt;
+		}
+	}
+	/*スマホレイアウトバリエーション*/
+	@include media(sp){
+		/*1列表示*/
+		&.type01 {
+			&>.boxContent {
+				@include boxContentSp01;
+			}
+		}
+		/*/.type01*/
+		/*1列表示、画像とテキストを1:1で並列表示*/
+		&.type02 {
+			&>.boxContent {
+				@include boxContentSp02;
+				&>.boxImg,&>.boxInner>.boxImg {width: 50%;}
+			}
+		}
+	}
+}
+/*/.boxList01*/
+
+.boxList02 {
+	@extend %boxList;
+	&>.boxContent {
+		width: 33.33333%;
+		float: left;
+		display: block;
+		@include box-sizing;
+		@include media(sp){
+			@include boxContentSp01;
+		}
+		&:nth-child(3n+1) {
+			clear: both;
+		}
+		&:nth-child(n+4){
+			margin-top: $spaceL;
+		}
+		&>.boxImg,
+		&>.boxInner>.boxImg {
+			@extend %boxListImg;
+			@include media(sp){
+				max-width: $cnW* 0.3 - $spaceS*2
+			}
+		}
+		&>.boxTxt,
+		&>.boxInner>.boxTxt {
+			@extend %boxListTxt;
+		}
+	}
+	/*.boxContent*/
+	/*スマホレイアウトバリエーション*/
+	@include media(sp){
+		/* 画像を横100%表示。スマホでは767pxの画像を用意すること。 */
+		&.type01 {
+			&>.boxContent{
+				&>.boxImg,
+				&>.boxInner>.boxImg {
+					width: 100%;
+					max-width: none;
+				}
+			}
+		}
+		/* 画像とテキストを1:2で並列表示; */
+		&.type02 {
+			&>.boxContent {
+				@include boxContentSp02;
+				&>.boxImg,
+				&>.boxInner>.boxImg {
+					width: 25%;
+					margin: 0;
+				}
+			}
+		}
+		/*/.type02*/
+	}
+}
+/*/.boxList02*/
+
+.boxList03 {
+	@extend %boxList;
+	&>.boxContent {
+		width: 25%;
+		float: left;
+		@include box-sizing;
+		display: block;
+		&:nth-child(n+5){
+			margin-top: $spaceR;
+		}
+		&:nth-child(4n+1) {
+			clear: both;
+		}
+		@include media(sp){
+			width: 50%;
+			@include box-sizing;
+			&:nth-child(n+3) {
+				margin-top: $spaceR;
+			}
+			&:nth-child(odd) {
+				clear: both;
+			}
+		}
+		&>.boxImg,
+		&>.boxInner>.boxImg {
+			@extend %boxListImg;
+		}
+		&>.boxTxt,
+		&>.boxInner>.boxTxt {
+			@extend %boxListTxt;
+		}
+	}
+	/*スマホレイアウトバリエーション*/
+	@include media(sp){
+		/* 一列表示 */
+		&.type01 {
+			&>.boxContent {
+				@include boxContentSp01;
+			}
+		}
+		/*/.type01*/
+		/* 一列表示、画像とテキストを1:3で並列表示; */
+		&.type02 {
+			&>.boxContent {
+				@include boxContentSp02;
+				&>.boxImg,
+				&>.boxInner>.boxImg {
+					width: 25%;
+				}
+			}
+		}
+		/*/.type02*/
+	}
+}
+/*/.boxList03*/
+
+%boxTableList {
+	width: auto;
+	@extend %clearfix;
+	&>.boxContent{
+		@include box-sizing;
+		padding: 0 $spaceS;
+		&>.boxWrapper {
+			display: table;
+			width: 100%;
+			@include box-sizing;
+			&.boxInner {
+				padding: $spaceS;
+				border: 1px solid $baseColor04;
+			}
+			.boxImg,
+			.boxTxt {display: table-cell;}
+			.boxImg {
+				@include box-sizing;
+				vertical-align: top;
+				&:first-child{padding-right: $spaceS;}
+				&:last-child{padding-left: $spaceS;}
+			}
+			.boxTxt {
+				vertical-align: middle;
+			}
+		}
+		&>a.boxWrapper {
+			text-decoration: none;
+			color: $baseColor05;
+		}
+	}
+}
+.boxTableList01 {
+	$imgW: 50%;
+	@extend %boxTableList;
+	&>.boxContent {
+		width: 50%;
+		float: left;
+		display: block;
+		
+		@include media(sp){
+			width: auto;
+			float: none;
+			&:nth-child(n+2) {
+				margin-top: $spaceR;
+			}
+		}
+		&:nth-child(odd) {clear: both;}
+		&:nth-child(n+3) {
+			margin-top: $spaceR;
+		}
+		&>.boxWrapper {
+			.boxImg {
+				width: $imgW;
+			}
+		}
+	}
+	/*スマホレイアウトバリエーション*/
+	@include media(sp){
+		&.type01 {
+			&>.boxContent>.boxWrapper .boxImg {
+				width: 30%;
+			}
+		}
+	}
+}
+/*/.boxTableList01*/
+
+.boxTableList02 {
+	$imgW: 30%;
+	@extend %boxTableList;
+	&>.boxContent {
+		display: block;
+		width: 33.33333%;
+		float: left;
+		&:nth-child(3n+1) {
+			clear: both;
+		}
+		&:nth-child(n+4){
+			margin-top: $spaceR;
+		}
+		@include media(sp) {
+			width: 100%;
+			&:nth-child(n+2) {
+				margin-top: $spaceR;
+			}
+		}
+		&>.boxWrapper {
+			.boxImg {
+				width: $imgW;
+			}
+		}
+	}
+}
+/*/.boxTableList02*/

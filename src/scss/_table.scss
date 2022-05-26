@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*////////////////////////////////////////////////////
+
+	汎用テーブル 
+		※入れ子にした際に孫のテーブルにスタイルが引き継がれないよう、
+		　　&>を使用したスタイル設定を推奨
+
+////////////////////////////////////////////////////*/
+/* ------------------------------------------------
+	テーブル
+------------------------------------------------ */
+/*ベーシックなテーブルスタイル*/
+.tb_basic01 {
+	&>thead>tr {
+		&>th{
+
+		}
+		&>td{
+		
+		}
+	}
+	&>tbody>tr,
+	&>tr{
+		&>th{
+
+		}
+		&>td {
+
+		}
+	}
+}
+/*装飾のないシンプルなテーブル*/
+.tb_simple01 {
+	width: auto !important;
+	border: none !important;
+	background: none !important;
+	&>tr{
+		&>th,
+		&>td {
+			text-align: left !important;
+			vertical-align: top !important;
+			width: auto !important;
+			border: none !important;
+			background: none !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+		&>th {
+			white-space: nowrap;
+			padding-right: 1em;
+		}
+	}
+}
