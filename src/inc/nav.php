@@ -1,4 +1,11 @@
     <nav>
+    <div class="l-aside gnav-btn">
+      <div class="nav-btn link-gnav ">
+        <span class="btn-line"></span>
+        <span class="btn-line"></span>
+        <span class="btn-line"></span>
+      </div>
+    </div>
       <div class="l-gnav">
 
         <div class="close-btn">
