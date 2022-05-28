@@ -1,17 +1,12 @@
     <nav>
+      <div class="nav-inner">
       <div class="l-gnav">
-
-        <div class="close-btn">
-          <!-- <span class="close-btn-line"></span>
-          <span class="close-btn-line"></span> -->
-          <span class="close-btn-tit">CLOSE</span>
-        </div>
         <div class="gnav-menu gnav-inputbox">
-
+          <h1 class="gnav-tit">SEARCH</h1>
           <div class="gnav-inner">
             <form role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="fetchForm" method="POST" name="f">
-            <h1>CATEGORY</h1>
-            <ul>
+            <h1 class="gnav-inner-tit">CATEGORY</h1>
+            <ul class="gnav-menu-list">
 
                 <!-- <input type="hidden" name="search_type" value="echo ( $form_type ) "> -->
                 <?php
@@ -39,8 +34,8 @@
             </ul>
           </div>
           <div class="gnav-inner">
-            <h1>TYPE</h1>
-            <ul>
+            <h1 class="gnav-inner-tit">TYPE</h1>
+            <ul class="gnav-menu-list">
               <?php
                 $type = get_terms( 'type' );
                 if ( ! empty( $type ) ) :
@@ -111,5 +106,6 @@
           </div>
 
         </div>
+      </div>
       </div>
     </nav>
