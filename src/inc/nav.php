@@ -97,8 +97,9 @@
           </div>
 
           <div class="gnav-inner">
+            <!-- <h1 class="gnav-tit">MENU</h1> -->
             <ul>
-              <li><a class="link01">ARTIST LIST</a></li>
+              <!-- <li><a class="link01">ARTIST LIST</a></li> -->
               <li><a class="link01">ABOUT</a></li>
               <li><a class="link01">CONTACT</a></li>
               <!-- <li><a class="link01"><img src="/img/common/logotw.svg"></a></li> -->

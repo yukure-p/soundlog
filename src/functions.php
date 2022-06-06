@@ -2,7 +2,7 @@
 /**
  * テーマのセットアップ
  */
-function yukury_theme_setup() {
+function sound_theme_setup() {
   // タイトルタグ（<title>）の出力.
   add_theme_support( 'title-tag' );
   add_theme_support( 'post-thumbnails' );
@@ -10,12 +10,15 @@ function yukury_theme_setup() {
   add_image_size( 'archive_thumbnail', 432, 332, true );
   add_image_size('music-list', 500, 338, true);
   // add_image_size('new-articles', 150, 112, true);
+
+
+  add_theme_support('wp-block-style');
 }
 //テーマが呼び出された後に、yukuryのテーマをセットアップする.
-add_action( 'after_setup_theme', 'yukury_theme_setup' );
+add_action( 'after_setup_theme', 'sound_theme_setup' );
 
 
-function yukury_enqueue_scripts(){
+function sound_enqueue_scripts(){
   wp_enqueue_script(
     '',
     get_template_directory_uri() . '/js/common.min.js',
@@ -32,9 +35,33 @@ function yukury_enqueue_scripts(){
     array(),
   );
 }
-add_action( 'wp_enqueue_scripts', 'yukury_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'sound_enqueue_scripts' );
 
-//カスタム投稿
+function sound_remove_block_patterns(){
+  remove_theme_support( 'core-block-patterns' );
+}
+add_action('after_setup_theme', 'sound_remove_block_patterns');
+
+
+function suound_register_block_patterns(){
+  register_block_pattern(
+    'soundlog/youtube',
+    array(
+      'title' => 'youtube動画',
+      'categories' => array('text'),
+      'discription' => 'youtube埋め込み',
+      'content' => "<div class=\"content-movie\">\n <div class=\"movie\">\n <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/s37fF9SLN6Q\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n </div>\n <p class=\"txt-cap\">textテキストアイウエpあいうえお</p>\n </div>",
+
+    )
+  );
+}
+add_action( 'init', 'suound_register_block_patterns' );
+
+
+
+
+
+//カスタム投稿日本語
 add_action( 'init', 'create_post_type_music' );
 function create_post_type_music() {
   register_post_type( 'music', // post-type
@@ -50,6 +77,7 @@ function create_post_type_music() {
       'menu_position' =>200,
       'show_in_rest' => true,
       'has_archive' => true,
+      'with_front' => true,
       // 'rewrite' => array( 'with_front' => false ),
       // 'rest_base' => 'music',
     )
@@ -61,11 +89,12 @@ function create_post_type_music() {
     array(
       'hierarchical' => true,
       'update_count_callback' => '_update_post_term_count',
-      'label' => 'musicカテゴリー',
-      'singular_label' => 'musicカテゴリー',
+      'label' => 'ジャンル',
+      'singular_label' => 'ジャンル',
       'public' => true,
       'show_ui' => true,
       'show_admin_column' => true,
+      // 'rewrite' => false,
       // 'rewrite' => array( 'slug' => 'music' ), //変更後のスラッグ
     )
   );
@@ -76,52 +105,37 @@ function create_post_type_music() {
     array(
       'hierarchical' => true,
       'update_count_callback' => '_update_post_term_count',
-      'label' => 'musicタイプ',
-      'singular_label' => 'musicタイプ',
+      'label' => 'タイプ',
+      'singular_label' => 'タイプ',
       'public' => true,
       'show_ui' => true,
       'show_admin_column' => true,
+      // 'rewrite' => false,
       // 'rewrite' => array( 'slug' => 'music' ), //変更後のスラッグ
     )
-  );       
+  );
+  //カスタムタクソノミー、artist*
+  register_taxonomy(
+    'artist',
+    'music',
+    array(
+      'hierarchical' => true,
+      'update_count_callback' => '_update_post_term_count',
+      'label' => 'Artist',
+      'singular_label' => 'Artist',
+      'public' => true,
+      'show_ui' => true,
+      'show_admin_column' => true,
+      // 'rewrite' => false,
+      // 'rewrite' => array( 'slug' => 'music' ), //変更後のスラッグ
+    )
+  );          
 }
 
-// カスタム投稿musicのURL変更ページネーション２ページ目以降の404させない設定
-// function add_custom_rewrite_rules() {
-//     add_rewrite_rule('music/genre/([^/]+)/page/([0-9]+)/?$', 'index.php?genre=$matches[1]&paged=$matches[2]', 'top');
-//     add_rewrite_rule('music/type/([^/]+)/page/([0-9]+)/?$', 'index.php?type=$matches[1]&paged=$matches[2]', 'top');
-//   }
-// add_action('init', 'add_custom_rewrite_rules');
 
 
-// // カスタム投稿musicのスラッグのリンク変更設定
-// function rewrite_term_links($termlink, $term, $taxonomy) {
-//   return ($taxonomy === 'genre' ? home_url('/music/'. $term->slug) : $termlink);
-//   return ($taxonomy === 'type' ? home_url('/music/'. $term->slug) : $termlink);
-// }
-// add_filter( 'term_link', 'rewrite_term_links', 10, 3 );
-
-// function my_custom_post_type_permalinks_set($termlink, $term, $post_type){
-//  return str_replace('/'.$post_type.'/', '/', $termlink);
-// }
-// add_filter('term_link', 'my_custom_post_type_permalinks_set',11,3);
 
 
-//カスタム投稿タイプ名、タクソノミー名部分に該当するタイプ名・タクソノミー名を入力する
-// add_rewrite_rule('カスタム投稿タイプ名/([^/]+)/?$', 'index.php?タクソノミー名=$matches[1]', 'top');
-// add_rewrite_rule('カスタム投稿タイプ名/([^/]+)/page/([0-9]+)/?$', 'index.php?タクソノミー名=$matches[1]&paged=$matches[2]', 'top');
-
-
-// function my_custom_post_type_permalinks_set($termlink, $term, $taxonomy){
-//     return str_replace('/'.$taxonomy.'/', '/', $termlink);
-// }
-// add_filter('term_link', 'my_custom_post_type_permalinks_set',11,3);
-
-
-// function custom_rewrite_basic() {
-//   add_rewrite_rule('^leaf/([0-9]+)/?', 'index.php?page_id=$matches[1]', 'top');
-// }
-// add_action('init', 'custom_rewrite_basic');
 
 function yukury_block_setup(){
   add_theme_support('wp-block-style');
@@ -211,14 +225,14 @@ add_filter( 'get_the_archive_title', function ($title) {
 }
 
 
-function custom_archive_title($title){
-    $titleParts=explode(': ',$title);
-    if($titleParts[1]){
-        return $titleParts[1];
-    }
-    return $title;
-}
-add_filter('get_the_archive_title','custom_archive_title');
+// function custom_archive_title($title){
+//     $titleParts=explode(': ',$title);
+//     if($titleParts[1]){
+//         return $titleParts[1];
+//     }
+//     return $title;
+// }
+// add_filter('get_the_archive_title','custom_archive_title');
 
 
 // 列の内容を追加
@@ -259,16 +273,8 @@ function add_posts_columns_postid_row($column_name, $post_id) {
   if( 'postid' == $column_name ) { 
     echo $post_id; } 
   } 
-  add_filter( 'manage_posts_columns', 'add_posts_columns_postid' ); 
-  add_action( 'manage_posts_custom_column', 'add_posts_columns_postid_row', 10, 2 );
-
-// korekore
-// function theme_query_vars( $vars ) {
-//   // $vars[] = 'genre'; // 必要に応じて追加.
-//   // $vars[] = 'type'; // 必要に応じて追加.
-//   return $vars;
-// }
-// add_filter( 'query_vars', 'theme_query_vars' );
+add_filter( 'manage_posts_columns', 'add_posts_columns_postid' ); 
+add_action( 'manage_posts_custom_column', 'add_posts_columns_postid_row', 10, 2 );
 
 
 function sample_function(){
@@ -278,107 +284,6 @@ wp_die();
   $genre = $_POST['genre'];
   $type = $_POST['type'];
 
-
-// $args = array(
-//   'post_type'      => 'music', // 絞り込み検索をする投稿タイプ.
-//   // 'paged'          => $now_page, // 何ページ目の記事を取得するか.
-//   'posts_per_page' => -1, // 1ページに表示する記事数.
-//   'tax_query'      => array( // 検索条件.
-//     'relation' => 'AND',
-//   ),
-// );
-
-// // 検索条件を追加.
-// if ( ! empty( $genre ) ) {
-//   $args['tax_query'][] = array(
-//     'taxonomy' => 'genre',
-//     'field'    => 'slug',
-//     'terms'    => $genre,
-//     'operator' => 'IN',
-//   );
-// }
-// if ( ! empty( $type ) ) {
-//   $args['tax_query'][] = array(
-//     'taxonomy' => 'type',
-//     'field'    => 'slug',
-//     'terms'    => $type,
-//     'operator' => 'IN',
-//   );
-// }
-// // $args = array();
-// $the_query = new WP_Query( $args );
-// $html = '';
-// if ( $the_query->have_posts() ): while ( $the_query->have_posts() ): $the_query->the_post();
-//           $html .= '<div class="l-box">';
-//             $html .= '<section>';
-//               $html .= '<div class="contents-list">';
-//                 $html .= '<div class="date">';
-//                   $html .= '<time datetime="'.get_the_date('Y.n.d').'">'.get_the_date('Y.n.d').'</time>';
-//                 $html .= '</div>';
-//                 $html .= '<div class="box-img">';
-//                   $html .= '<a href="'.get_permalink($post->ID).'" class="linkBl01">';
-                  
-//                       // アイキャッチ画像を取得
-//                       $thumbnail_id = get_post_thumbnail_id($post->ID);
-//                       $thumb_url = wp_get_attachment_image_src($thumbnail_id, 'music-list');
-//                       if (get_post_thumbnail_id($post->ID)) {
-//                         $html .= '<img src="' . $thumb_url[0] . '" alt="">';
-//                       } else {
-//                         // アイキャッチ画像が登録されていなかったときの画像
-//                         $html .= '<img src="' . get_template_directory_uri() . '/img/img-default.png" alt="">';
-//                       }
-                      
-//                   $html .= '</a>';
-
-//                     $html .= '<h1 class="list-title">';
-//                       $html .= '<a href="'.get_permalink($post->ID).'" class="link03">'.get_the_title($post->ID).'</a>';
-//                     $html .= '</h1>';
-                  
-//                 $html .= '</div>';
-
-                
-//                   $terms = get_the_terms($post->ID, 'genre');
-//                   if($terms):
-//                     $html .= '<ul class="category-tag" arial-label="タグ">';
-
-//                     foreach($terms as $term):
-//                       $term_name = $term->name;
-//                       $term_link = get_term_link( $term );    //$termはオブジェクトなので第二引数は省略可
-//                       $html .= '<li><a href="'.$term_link.'" class="link01">'.$term_name.'</a></li>';
-//                     endforeach;
-
-//                     $html .= '</ul>';
-//                   endif;
-                
-                 
-
-                
-                
-//                   $terms = get_the_terms($post->ID, 'type');
-//                   if($terms):
-//                     $html .= '<ul class="type-tag" arial-label="タグ">';
-
-//                     foreach($terms as $term):
-//                       $term_name = $term->name;
-//                       $term_link = get_term_link( $term );    //$termはオブジェクトなので第二引数は省略可
-//                       $html .= '<li><a href="'.$term_link.'" class="link02">'.$term_name.'</a></li>';
-//                     endforeach;
-
-//                     $html .= '</ul>';
-//                   endif;
-              
-                  
-                
-//               $html .= '</div>';
-//             $html .= '</section>';
-//           $html .= '</div>';
-//           endwhile;
-//         endif;
-
-
-
-//         // header("Content-type: application/json; charset=UTF-8");
-//     echo $html;
     die();
 
 }
@@ -386,13 +291,6 @@ wp_die();
 add_action( 'wp_ajax_sample_function', 'ajax_func' );
 //非ログインユーザー用関数
 add_action( 'wp_ajax_nopriv_sample_function', 'ajax_func' );
-
-
-
-
-
-
-
 
 function my_ajax_search(){
     // 「ad_url.ajax_url」のようにしてURLを指定できるようになる
@@ -429,3 +327,51 @@ add_filter( 'rewrite_rules_array', 'music_rewrite_rules_array' );
 
 
 
+// 多言語プラグインBOGOのカスタム投稿有効化設定
+function my_localizable_post_types( $localizable ) {
+    $localizable[] = 'music';
+    return $localizable;
+}
+add_filter( 'bogo_localizable_post_types', 'my_localizable_post_types', 10, 1 );
+
+// 英語用テンプレ名設定
+function select_locale_template($template){
+    if(get_locale() == 'en_US'){
+        $locale_template = dirname( __FILE__ ) . '/' . basename($template, '.php') . '-en.php';
+        if(file_exists($locale_template)){
+            $template = $locale_template;
+        }
+    }
+    return $template;
+}
+add_filter('front_page_template', 'select_locale_template');
+add_filter('archive_template', 'select_locale_template');
+add_filter('taxonomy_template', 'select_locale_template');
+add_filter('page_template', 'select_locale_template');
+add_filter('search_template', 'select_locale_template');
+add_filter('single_template', 'select_locale_template');
+add_filter('404_template', 'select_locale_template');
+add_filter('paged_template', 'select_locale_template');
+
+// BOGO国旗アイコン無くす
+add_filter( 'bogo_use_flags','bogo_use_flags_false');
+function bogo_use_flags_false(){
+ return false;
+}
+
+
+add_filter( 'bogo_language_switcher_links', function ( $links ) {
+for ( $i = 0; $i < count( $links ); $i ++ ) {
+// 日本語
+if ( 'ja' === $links[ $i ]['locale'] ) {
+$links[ $i ]['title'] = 'JP';
+$links[ $i ]['native_name'] = 'JP';
+}
+// 英語
+if ( 'en_US' === $links[ $i ]['locale'] || 'en' === $links[ $i ]['locale']) {
+$links[ $i ]['title'] = '';
+$links[ $i ]['native_name'] = 'EN';
+}
+}
+return $links;
+} );

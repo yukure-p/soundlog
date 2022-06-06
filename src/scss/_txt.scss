@@ -63,10 +63,10 @@
 /* ------------------------------------------------
 	見出し
 ------------------------------------------------ */
-.local-title{
+.detail-title{
   line-height: 1.6;
   font-weight:bold;
-  font-size:var(--Enfont);
+  font-size:var(--EnfontXL);
   color: $fontColor01;
   letter-spacing:0.15em;
   position:relative;
@@ -102,33 +102,33 @@
 .list-tit{
   line-height: 1.6;
   font-weight:bold;
-  font-size:var(--Enfont);
+  font-size:var(--EnfontXL);
   color: $fontColor01;
   letter-spacing:0.15em;
   position:relative;
   width:100%;
   font-family: quicksand;
-  border-bottom:1px solid var(--border-color03);
-  // &:before{
-  //   content: "";
-  //   display:inline-block;
-  //   position:absolute;
-  //   background-color:$baseColor04;
-  //   height:1px;
-  //   width:10%;
-  //   bottom:-4px;
-  //   left: 0;
-  // }
-  // &:after{
-  //   content: "";
-  //   display:inline-block;
-  //   position:absolute;
-  //   background-color:$baseColor05;
-  //   height:1px;
-  //   width:90%;
-  //   bottom:-4px;
-  //   left: 10%;
-  // }
+  @include flexbox;
+  @include flex-justify-content($justify:flex-start);
+  @include flex-align($align: center);
+  // border-bottom:1px solid var(--border-color03);
+  &:after{
+    content: "";
+    display:inline-block;
+    position:absolute;
+    background-color:var(--border-color03);
+    height:1px;
+    width:100%;
+  }
+  span{
+    display:inline-block;
+    background:var(--bg-color);
+    padding-right:40px;
+    position:relative;
+    z-index: 2;
+    top: -2px;
+  }
+
   @include media(sp){
     font-size:var(--fSizeL);
     margin-top:30px;
@@ -172,9 +172,11 @@
 
 
 .sim-tit{
-  font-size:var(--fSizeM);
-  margin-bottom:20px;
+  font-size:var(--EnfontXL);
   font-weight:normal;
+  font-weight:bold;
+  width:var(--cn-width);
+  margin:0 auto;
 }
 .f-tit{
   font-size:var(--fSizeS);

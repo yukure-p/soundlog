@@ -32,21 +32,21 @@ const menuVisivble = () => {
 menuVisivble();
 
 // Language
-const lang = () => {
-  const check = document.getElementById("en");
-  // const en = document.querySelector(".lang-en");
-  // const jp = document.querySelector(".lang-jp");
-  const lang = document.querySelector(".lang a");
-  if(check != null){
-    // en.classList.add("is-lang")
-    lang.innerText = "EN";
-  }else{
-    // jp.classList.add("is-lang")
-    lang.innerText = "JP";
-  }
+// const lang = () => {
+//   const check = document.getElementById("en");
+//   // const en = document.querySelector(".lang-en");
+//   // const jp = document.querySelector(".lang-jp");
+//   const lang = document.querySelector(".lang a");
+//   if(check != null){
+//     // en.classList.add("is-lang")
+//     lang.innerText = "EN";
+//   }else{
+//     // jp.classList.add("is-lang")
+//     lang.innerText = "JP";
+//   }
   
-};
-lang();
+// };
+// lang();
 
 
 

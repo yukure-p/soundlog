@@ -12,14 +12,30 @@
 .l-box{
   opacity:0;
   @include transition(all,.5s .0s, ease);
+  @include flexbox;
+  section{
+    @include flexbox;
+  }
 }
 
 .contents-list{
   width:auto;
   height:auto;
+  @include flexbox;
+  @include flex-direction($direction:column);
+  flex: 1;
   img{
     width:100%;
     height:auto;
+  }
+  .box-contents{
+    background:var(--bg-color03);
+    padding:20px;
+    @include flexbox;
+    // @include flex-justify-content($justify:center);
+    // @include flex-align($align: center);
+    @include flex-direction($direction:column);
+    flex: 1;
   }
   .date{
     font-size:var(--fSizeXXS);
@@ -27,8 +43,8 @@
     margin-bottom:8px;
   }
   .list-title{
-    font-size:var(--fSizeSS);
-    margin-top:15px;
+    font-size:var(--fSizeS);
+    margin:8px 0 20px 0;
     a{
       display:inline-block;
       color:var(--font-color01);
@@ -85,43 +101,31 @@
 ------------------------------------------------ */
 
 .category-tag{
-  margin-top:12px;
-  line-height: 1;
+    @include flexbox;
+    @include flex-justify-content($justify:flex-start);
+    column-gap:15px;
   .detail-aside & {
     margin-top:0px;
     padding:8px 0 8px 0;
   }
   li{
-    font-size:var(--fSizeXS);
-    margin-right:5px;
-    display:inline-block;
-    margin-bottom:10px;
+    font-size:var(--fSizeSS);
     a{
       color:var(--font-color01);
-    }
-    &:after{
-      content:'/';
-      display:inline-block;
-      margin-left:5px;
-      color:var(--font-color02);
-      font-size:var(--fSizeXXS);
-    }
-    &:last-child{
-      margin-right:0;
-      &:after{
-        display:none;
-      }
     }
   }
 }
 .type-tag{
+  margin-top: auto;
   line-height: 1;
-  margin-top:5px;
+  @include flexbox;
+  column-gap:15px;
+  border-top: 1px solid var(--bg-color07);
+  padding-top: 20px;
+  @include flex-justify-content($justify:flex-end);
   li{
-    font-size:var(--fSizeXS);
-    margin-right:10px;
-    display:inline-block;
-    margin-bottom:15px;
+    font-size:var(--fSizeXXS);
+    
     a{
       color:var(--font-color01);
     }    
@@ -130,8 +134,10 @@
     }
   }
   .detail-aside & {
+    border:none;
     padding:0px 0 16px 0;
-    margin-top:0px;
+    margin-top:10px;
+    @include flex-justify-content($justify:flex-start);
   }
 }
 
@@ -141,7 +147,7 @@
 ------------------------------------------------ */
 
 .entry-box{
-  margin: 60px 0 80px 0;
+  margin: 80px 0 140px 0;
   @include media(sp){
     margin: 40px 0 40px 0;
   }
@@ -176,7 +182,7 @@
 .detail-aside{
   .detail-box-inner{
     @include sticky;
-    top:75px;
+    top:120px;
   }
   .detail-img{
     img{
@@ -190,7 +196,7 @@
     border-bottom:1px solid var(--border-color01);
     li{
       // margin-bottom:8px;
-      font-size:var(--fSizeSS);
+      font-size:var(--fSizeS);
       padding:7px 0 ;
       display:table;
       width:100%;
@@ -199,14 +205,13 @@
       }
     }
     .agenda{
-      font-size:var(--fSizeSS);
+      font-size:var(--fSizeS);
       font-weight:bold;
       display:inline-block;
       width:110px;
       position:relative;
       display:table-cell;
       vertical-align: middle;
-      padding-left:12px;
       &:after{
         content:'-';
         display:inline-block;
@@ -226,13 +231,10 @@
     margin:30px auto 0 auto;
     width:60%;
   }
-  .detail-tag{
-    padding-left:12px;
-  }
 }
 
 .content-movie {
-  margin:30px 0 30px 0;
+  margin-bottom:30px;
   .movie{
     position: relative;
     padding-bottom: 56.25%; /* アスペクト比16:9の場合 */
@@ -261,18 +263,30 @@
 }
 
 
+
+/* ------------------------------------------------
+  記事ページ 似た曲の表示設定
+------------------------------------------------ */
+
 .similar-box{
-  background:var(--bg-color01);
-  padding:3rem;
+  background:var(--bg-color03);
+  padding:10rem 0;
   @include media(sp){
     margin:40px 0 60px 0;
   }
   .similar-box-inner{
-    @include flexbox;
-    @include flex-wrap($wrap:wrap);
-    column-gap:20px;
+    margin:100px auto 0 auto;
+    // @include flexbox;
+    // @include flex-wrap($wrap:wrap);
+    display:grid;
+    justify-content:center;
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    grid-template-rows: auto;
+    column-gap:40px;
+    row-gap:40px;
+    width:var(--cn-width);
     .l-box{
-      width:25%;
+      // width:25%;
     }
     @include media(sp){
       @include flex-justify-content($justify:space-between);
@@ -285,6 +299,9 @@
   }
 }
 
+.crp-list-title{
+  display:none;
+}
 
 /* ------------------------------------------------
   検索件数

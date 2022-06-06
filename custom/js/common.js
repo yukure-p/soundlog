@@ -26,23 +26,21 @@ var menuVisivble = function menuVisivble() {
 };
 
 menuVisivble(); // Language
-
-var lang = function lang() {
-  var check = document.getElementById("en"); // const en = document.querySelector(".lang-en");
-  // const jp = document.querySelector(".lang-jp");
-
-  var lang = document.querySelector(".lang a");
-
-  if (check != null) {
-    // en.classList.add("is-lang")
-    lang.innerText = "EN";
-  } else {
-    // jp.classList.add("is-lang")
-    lang.innerText = "JP";
-  }
-};
-
-lang(); // 遅延読み込み
+// const lang = () => {
+//   const check = document.getElementById("en");
+//   // const en = document.querySelector(".lang-en");
+//   // const jp = document.querySelector(".lang-jp");
+//   const lang = document.querySelector(".lang a");
+//   if(check != null){
+//     // en.classList.add("is-lang")
+//     lang.innerText = "EN";
+//   }else{
+//     // jp.classList.add("is-lang")
+//     lang.innerText = "JP";
+//   }
+// };
+// lang();
+// 遅延読み込み
 
 var $lazy = document.querySelectorAll(".l-box,.delay-load");
 var options = {

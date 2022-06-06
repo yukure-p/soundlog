@@ -5,7 +5,7 @@
         <?php breadcrumb(); ?>
       <section>
         <div class="entry-box">
-          <h1 class="list-tit"><?php single_term_title(); ?></h1>
+          <h1 class="list-tit"><span><?php single_term_title(); ?></span></h1>
         </div>
       </section>
     </div>
@@ -35,38 +35,38 @@
                       }
                     ?>      
                   </a>
+                </div>
 
+                <div class="box-contents">
+                  <?php
+                    $terms = get_the_terms($post->ID, 'genre');
+                    if($terms):
+                      echo '<ul class="category-tag" arial-label="タグ">';
+
+                      foreach($terms as $term):
+                        $term_name = $term->name;
+                        $term_link = get_term_link( $term );
+                        echo '<li><a href="'.$term_link.'" class="link01">'.$term_name.'</a></li>';
+                      endforeach;
+                      echo '</ul>';
+                    endif;
+                  ?>
                   <h1 class="list-title">
                     <a href="<?php echo get_permalink($post->ID); ?>" class="link03"><?php echo get_the_title($post->ID); ?></a>
                   </h1>
-                  
-                </div>
-
-                <?php
-                  $terms = get_the_terms($post->ID, 'genre');
-                  if($terms):
-                    echo '<ul class="category-tag" arial-label="タグ">';
-
-                    foreach($terms as $term):
-                      $term_name = $term->name;
-                      $term_link = get_term_link( $term );
-                      echo '<li><a href="'.$term_link.'" class="link01">'.$term_name.'</a></li>';
-                    endforeach;
-                    echo '</ul>';
-                  endif;
-                ?>
-                <?php
-                  $terms = get_the_terms($post->ID, 'type');
-                  if($terms):
-                    echo '<ul class="type-tag" arial-label="タグ">';
-                    foreach($terms as $term):
-                      $term_name = $term->name;
-                      $term_link = get_term_link( $term );
-                      echo '<li><a href="'.$term_link.'" class="link02">'.$term_name.'</a></li>';
-                    endforeach;
-                    echo '</ul>';
-                  endif;
-                ?>
+                  <?php
+                    $terms = get_the_terms($post->ID, 'type');
+                    if($terms):
+                      echo '<ul class="type-tag" arial-label="タグ">';
+                      foreach($terms as $term):
+                        $term_name = $term->name;
+                        $term_link = get_term_link( $term );
+                        echo '<li><a href="'.$term_link.'" class="link02">'.$term_name.'</a></li>';
+                      endforeach;
+                      echo '</ul>';
+                    endif;
+                  ?>
+                </div>  
               </div>
             </section>
           </div>

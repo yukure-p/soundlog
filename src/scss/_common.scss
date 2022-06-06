@@ -25,6 +25,7 @@ $icoSprite01:'/common/img/sprite_ico01.png';
   --bg-color04: #e7e7e7;//
   --bg-color05: #F5F5F5;
   --bg-color06: #535353;//チェックボックスオーバー
+  --bg-color07: #f3f3f3;//リンク背景
 
   // ベースカラー
   --base-color01: #fff;
@@ -45,7 +46,7 @@ $icoSprite01:'/common/img/sprite_ico01.png';
   // リンクカラー
   --link-color01: #808080;//リンクライン
   --link-color02: #f3f3f3;//リンク背景
-
+  --link-color03: #333333;//
   // フォントサイズ
   --fSizeXXXS: calc((8* 0.1) * 1rem);//
   --fSizeXXS: calc((10* 0.1) * 1rem);//
@@ -57,12 +58,12 @@ $icoSprite01:'/common/img/sprite_ico01.png';
   --fSizeM: calc((20* 0.1) * 1rem);
   --fSizeL: calc((22* 0.1) * 1rem);
   --fSizeLL: calc((24* 0.1) * 1rem);
-  --fSizeXL: calc((26* 0.1) * 1rem);
+  --fSizeXL: calc((28* 0.1) * 1rem);//
   --Enfont: calc((30* 0.1) * 1rem);//
   --EnfontS: calc((32* 0.1) * 1rem);
   --EnfontR: calc((34* 0.1) * 1rem);
   --EnfontL: calc((36* 0.1) * 1rem);
-  --EnfontXL: calc((38* 0.1) * 1rem);
+  --EnfontXL: calc((40* 0.1) * 1rem);//
   --MVfont: calc((60* 0.1) * 1rem);
 
 
@@ -89,6 +90,8 @@ $icoSprite01:'/common/img/sprite_ico01.png';
   --nav-gnav-width:78px; //
   --nav-width:30px; //
   --logo-width:140px;//
+  --sp-nav-lang-width:60px; //
+  --sp-nav-gnav-width:60px; //
 }
 
 
@@ -181,12 +184,14 @@ $spaceLL: 120px;
 //　メディアクエリ設定
 //　==================================================
 @mixin media($point){
-  @if $point == spS{
-    @media only screen and (max-width:320px){
-      @content;
-    }
-  }@if $point == spMS{
-    @media only screen and (max-width:360px){
+  // @if $point == spS{
+  //   @media only screen and (max-width:320px){
+  //     @content;
+  //   }
+  // }
+
+  @if $point == spMS{
+    @media only screen and (max-width:557px){
       @content;
     }
   }@else if $point == sp{

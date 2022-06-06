@@ -25,38 +25,7 @@
           <div class="detail-box">
             <section>
               <?php the_content(); ?>
-              <div class="detain-innerbox">
-                <h1 class="box-tit01">h1 テキスト</h1>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-              </div>
-              
-              <div class="detain-innerbox">
-              <h2 class="box-tit02">テキスト</h1>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-              </div>
-
-              <div class="detain-innerbox">
-                <h3 class="box-tit03">テキスト</h1>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                <p class="txt">テキスト</p>
-                <p class="txt">テキスト</p>
-                <p class="txt">テキストp</p>
-              </div>
-
-              <div class="content-movie">
-                <div class="movie">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/s37fF9SLN6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <p class="txt-cap">textテキストアイウエpあいうえお</p>
-              </div>
-
-              <div class="detain-innerbox">
-                <p class="txt">テキスト</p>
-                <p class="txt">テキスト</p>
-              </div>
-              </section>
+            </section>
           </div>
           
           <div class="detail-aside">
@@ -75,7 +44,15 @@
                 ?>   
               </div>
               <ul class="detail-info">
-                <li><span class="agenda">ARTIST</span><a href="" class="link01"><?php the_field('artist'); ?></a></li>
+                <li><span class="agenda">ARTIST</span>
+                  <?php
+                    $terms = get_the_terms($post->ID, 'artist');
+                    foreach( $terms as $term ) {
+                      
+                      echo $term->name; 
+                    }
+                  ?>  
+                </li>
                 <li><span class="agenda">TITLE</span><?php the_field('title'); ?></li>
                 <li><span class="agenda"><?php the_field('format'); ?></span><?php the_field('content-tit'); ?></li>
                 <li><span class="agenda">RELEASE</span><?php the_field('release'); ?></li>
@@ -135,7 +112,7 @@
   <div class="l-container">
     <article> 
       <div class="l-contents">
-        <h1 class="list-tit">MUSIC</h1>
+        <h1 class="list-tit"><span>MUSIC</span></h1>
 
         <div class="l-list space-topXL" id="result">
           <?php get_template_part( 'search' ); // 検索フォームを読み込み. ?>
@@ -147,20 +124,6 @@
     </article> 
   </div>
   <!-- /.l-container -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php get_footer(); ?>

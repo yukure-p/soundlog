@@ -25,38 +25,7 @@
           <div class="detail-box">
             <section>
               <?php the_content(); ?>
-              <div class="detain-innerbox">
-                <h1 class="box-tit01">h1 テキスト</h1>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-              </div>
-              
-              <div class="detain-innerbox">
-              <h2 class="box-tit02">テキスト</h1>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-              </div>
-
-              <div class="detain-innerbox">
-                <h3 class="box-tit03">テキスト</h1>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                <p class="txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                <p class="txt">テキスト</p>
-                <p class="txt">テキスト</p>
-                <p class="txt">テキストp</p>
-              </div>
-
-              <div class="content-movie">
-                <div class="movie">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/s37fF9SLN6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <p class="txt-cap">textテキストアイウエpあいうえお</p>
-              </div>
-
-              <div class="detain-innerbox">
-                <p class="txt">テキスト</p>
-                <p class="txt">テキスト</p>
-              </div>
-              </section>
+            </section>
           </div>
           
           <div class="detail-aside">

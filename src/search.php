@@ -62,40 +62,42 @@ $the_query = new WP_Query( $args );
                       }
                     ?>      
                   </a>
+                </div>
+                <div class="box-contents">
+                  <?php
+                    $terms = get_the_terms($post->ID, 'genre');
+                    if($terms):
+                      echo '<ul class="category-tag" arial-label="タグ">';
 
+                      foreach($terms as $term):
+                        $term_name = $term->name;
+                        $term_link = get_term_link( $term );    //$termはオブジェクトなので第二引数は省略可
+                        echo '<li><a href="'.$term_link.'" class="link01">'.$term_name.'</a></li>';
+                      endforeach;
+
+                      echo '</ul>';
+                    endif;
+                  ?>
                   <h1 class="list-title">
                     <a href="<?php echo get_permalink($post->ID); ?>" class="link03"><?php echo get_the_title($post->ID); ?></a>
                   </h1>
+
+
+                  <?php
+                    $terms = get_the_terms($post->ID, 'type');
+                    if($terms):
+                      echo '<ul class="type-tag" arial-label="タグ">';
+
+                      foreach($terms as $term):
+                        $term_name = $term->name;
+                        $term_link = get_term_link( $term );    //$termはオブジェクトなので第二引数は省略可
+                        echo '<li><a href="'.$term_link.'" class="link02">'.$term_name.'</a></li>';
+                      endforeach;
+
+                      echo '</ul>';
+                    endif;
+                  ?>
                 </div>
-
-                <?php
-                  $terms = get_the_terms($post->ID, 'genre');
-                  if($terms):
-                    echo '<ul class="category-tag" arial-label="タグ">';
-
-                    foreach($terms as $term):
-                      $term_name = $term->name;
-                      $term_link = get_term_link( $term );    //$termはオブジェクトなので第二引数は省略可
-                      echo '<li><a href="'.$term_link.'" class="link01">'.$term_name.'</a></li>';
-                    endforeach;
-
-                    echo '</ul>';
-                  endif;
-                ?>
-                <?php
-                  $terms = get_the_terms($post->ID, 'type');
-                  if($terms):
-                    echo '<ul class="type-tag" arial-label="タグ">';
-
-                    foreach($terms as $term):
-                      $term_name = $term->name;
-                      $term_link = get_term_link( $term );    //$termはオブジェクトなので第二引数は省略可
-                      echo '<li><a href="'.$term_link.'" class="link02">'.$term_name.'</a></li>';
-                    endforeach;
-
-                    echo '</ul>';
-                  endif;
-                ?>
               </div>
             </section>
 

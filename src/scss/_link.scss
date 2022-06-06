@@ -98,11 +98,14 @@ a.link01 {
 a.link02 {
 	@include transition($property: all, $time: 0.4s, $timing: cubic-bezier(0, 0.01, 0, 1.02));
 	background:var(--link-color02);
-	padding:4px 8px;
+	padding:5px 10px;
 	height:10px;
+	border-radius:10px;
 	@include media(pc){
 		&:hover {
-			@include opacity(0.6);
+			// @include opacity(0.6);
+			color:var(--font-color03);
+			background:var(--link-color03);
 			cursor:pointer;
 		}
 	}
@@ -149,7 +152,7 @@ a.link02 {
 	display:block;
 	// @include transition($property: all, $time: 0.8s, $timing: cubic-bezier(0, 0.58, 0.67, 1.02));
 		img{
-			@include transition($property: all, $time: 0.8s, $timing: cubic-bezier(0, 0.58, 0.67, 1.02));
+			@include transition($property: all, $time: 0.4s, $timing: cubic-bezier(0.77, 0, 1, 1));
 		}
 		&:hover {
 			cursor:pointer;
@@ -307,6 +310,7 @@ a.link02 {
 		@include flexbox;
 		@include flex-align($align: center);
 		@include flex-justify-content($justify:center);
+		@include transition($property: all, $time: 0.8s, $timing: cubic-bezier(0, 0.32, 0.35, 0.96));
 		@include media(pc){
 			&:hover{
 				color:var(--font-color03);

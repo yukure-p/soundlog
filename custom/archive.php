@@ -10,7 +10,7 @@
       <?php breadcrumb(); ?>
       <section>
         <div class="entry-box">
-          <h1 class="list-tit"><?php single_term_title(); ?>アーカイブ</h1>
+          <h1 class="list-tit"><span>MUSIC</span></h1>
         </div>
       </section>
     </div>
